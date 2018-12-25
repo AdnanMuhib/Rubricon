@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RubricsActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,9 @@
         <activity android:name=".NewRubricActivity" />
         <activity android:name=".AddCloActivity" />
         <activity android:name=".CloSubCategoryActivity" />
-        <activity android:name=".DescriptionsActivity"></activity>
+        <activity android:name=".DescriptionsActivity" />
+        <activity android:name=".LabEvaluationActivity" />
+
     </application>
 
 </manifest>
