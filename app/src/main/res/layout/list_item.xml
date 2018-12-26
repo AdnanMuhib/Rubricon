@@ -11,6 +11,7 @@
         android:paddingLeft="50dp"
         android:paddingTop="20dp"
         android:text="TextView"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TableRow
@@ -31,7 +32,7 @@
             android:layout_marginLeft="20dp"
             android:ems="4"
             android:hint="Marks"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
     </TableRow>
 
 </LinearLayout>

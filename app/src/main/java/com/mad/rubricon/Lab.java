@@ -3,11 +3,14 @@ package com.mad.rubricon;
 import java.util.ArrayList;
 
 public class Lab {
+    String labTitle;
     double labMarks;
     double marksWeight;
+
     ArrayList<Question> questions = new ArrayList<>();
 
-    public Lab(double labMarks, double marksWeight) {
+    public Lab(double labMarks, double marksWeight, String title) {
+        this.labTitle = title;
         this.labMarks = labMarks;
         this.marksWeight = marksWeight;
     }
@@ -30,5 +33,13 @@ public class Lab {
 
     public void addQuestion(Question question){
         questions.add(question);
+    }
+
+    public String getLabTitle() {
+        return labTitle;
+    }
+
+    public void setLabTitle(String labTitle) {
+        this.labTitle = labTitle;
     }
 }

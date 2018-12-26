@@ -19,7 +19,8 @@
         <activity android:name=".NewRubricActivity" />
         <activity android:name=".AddCloActivity" />
         <activity android:name=".CloSubCategoryActivity" />
-        <activity android:name=".DescriptionsActivity"></activity>
+        <activity android:name=".DescriptionsActivity" />
+        <activity android:name=".LabActivity"></activity>
     </application>
 
 </manifest>

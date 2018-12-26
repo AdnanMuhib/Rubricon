@@ -4,16 +4,18 @@ import java.util.ArrayList;
 
 
 public class Rubric {
+    public static Rubric rubric = new Rubric();
     String courseID;
     String rubricTitle;
     ArrayList<RubricCLO> rubricCLOs = new ArrayList<>();
     ArrayList<GradingLevel> gradingLevels = new ArrayList<>();
 
 
-    public Rubric(String courseID, String rubricTitle) {
+    private Rubric(String courseID, String rubricTitle) {
         this.courseID = courseID;
         this.rubricTitle = rubricTitle;
     }
+    private Rubric(){}
 
     public String getCourseID() {
         return courseID;
