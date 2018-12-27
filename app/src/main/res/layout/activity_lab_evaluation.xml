@@ -22,26 +22,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTeacherName"
-        app:layout_constraintVertical_bias="0.0"
-        android:stretchColumns="1">
+        app:layout_constraintTop_toBottomOf="@+id/textViewTeacherName">
 
         <TableRow
             android:id="@+id/tblHeadRow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_light">
 
             <TextView
@@ -49,19 +42,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:text="Course ID" />
+                android:text="Course ID"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textViewCrsTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:gravity="left"
                 android:padding="15dp"
-                android:text="Course Title" />
+                android:text="Course Title"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+        </TableRow>
     </TableLayout>
+
+    <ListView
+        android:id="@+id/mCourseList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        tools:layout_editor_absoluteX="8dp" />
 </android.support.constraint.ConstraintLayout>
