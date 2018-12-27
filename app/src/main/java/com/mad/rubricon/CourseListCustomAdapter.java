@@ -55,12 +55,12 @@ public class CourseListCustomAdapter extends BaseAdapter implements ListAdapter 
         courseTitleText.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v){
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, LabEvalSelectWeekActivity.class);
                 String crsId = v.getTag().toString();
                 intent.putExtra("crsId", crsId);
                 Log.i("DebugLog",crsId);
                 context.startActivity(intent);
-                notifyDataSetChanged();
+                //notifyDataSetChanged();
             }
         });
         return view;
