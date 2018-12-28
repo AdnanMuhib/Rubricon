@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Courses">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="sans-serif-medium"
+                android:text="Create Course"
+                android:onClick="createCourse"
+                android:textColor="@color/white" />
+            <Button
+                android:id="@+id/btn_modify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_create"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="sans-serif-medium"
+                android:text="Modify Course"
+                android:onClick="modifyCourse"
+                android:textColor="@color/white" />
+            <Button
+                android:id="@+id/btn_clo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_modify"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="cloCreation"
+                android:text="CLO Creation"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btn_assignCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_clo"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="allocateCourses"
+                android:text="Assign Courses"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
+
+
+
+
+

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Rubricon</string>
+    <string-array name="designation">
+        <item>Lecturer</item>
+        <item>Assistant Professor</item>
+        <item>Associate Professor</item>
+        <item>Professor</item>
+    </string-array>
+    <string-array name="sections">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+    </string-array>
+    <string-array name="CloNo">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="Priority">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+</resources>
