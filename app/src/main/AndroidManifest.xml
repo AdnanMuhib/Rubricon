@@ -22,7 +22,11 @@
         <activity android:name=".DescriptionsActivity" />
         <activity android:name=".LabEvaluationActivity" />
         <activity android:name=".LabEvalSelectWeekActivity" />
+
         <activity android:name=".LabEvalSelectQuestionActivity"></activity>
-    </application>
+            <activity
+                android:name=".DrawerActivity"
+                android:label="@string/title_activity_drawer"></activity>
+        </application>
 
 </manifest>

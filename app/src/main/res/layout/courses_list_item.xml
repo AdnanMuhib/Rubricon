@@ -11,8 +11,9 @@
         android:paddingBottom="5dp"
         android:paddingLeft="15dp"
         android:paddingTop="5dp"
+        android:textColor="@color/textColor"
         android:text="Course ID"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textViewCourseTitle"
@@ -20,8 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="left|start"
+        android:textColor="@color/textColor"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:text="Course Title"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 </LinearLayout>

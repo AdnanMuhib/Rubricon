@@ -1,0 +1,242 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\2241c39d9d013302c50c7f193ab5075f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\60d9d7a0b3a05529e61e4e35ed339230\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\929d5a3fee9af167c4f3e2c8fa57d842\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\7913b7513ad8209662dfa2ddd0c36efa\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\48caf4caf0c1a9bd4c03acb6b9313ad9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f78b37fc622dafbcae34e827b38dcfdc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\35e0cace53629b0fca4be00e446ebe30\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\5971d227be781e44b056c505e31c2d5e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\69f2a3b06ba4231e1fcd12aee2266e8a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\53e5a808e230ac9262f5f430262e9624\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\bc21d756bca43ceae862afb16e689a8a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\28c0b1758811175adab167b23a0283ed\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\286280b211946db9e4bb4efc8358d131\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\5678f7b794236abb119c53f5c357a8a9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\5f2838a2a5eeb7057e9a99a0b994a00e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\d267039e8d22c3bb73bbb3278605577d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\e645e49748d683c264478ad58e6091f5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\5ded717d5b438a5ba204ba78e744fc58\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\dd7b1788d81de4144ef86bfd0dbe26ca\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\1150602879bba551022d171559af8939\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\e5d23e341748fc39579417e23706181d\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\0637c43907569f2be334178b3dedff4c\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\5ff7dd0883e485c7511fba33b670ceaf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\df315a4c97b93e9da6547b30a42b835a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\eb975d483274283f1bf6930ef279e7d1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\838763515b045c80785da97d8ca62bc5\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\1f444f6b03aa61517244588f323feb00\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\fe3198aa4b91f1e481599ec0de300c89\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\85ddc01c4f842883e1fa5c8028466e75\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\b0cf00a35264e951ab277f40345ef3e1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c6d963e137651bfd5906fda861aa6f21\AndroidManifest.xml:17:1-22:12
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+	package
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:3:5-43
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:1-43:12
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:5:5-41:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\2241c39d9d013302c50c7f193ab5075f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\2241c39d9d013302c50c7f193ab5075f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\929d5a3fee9af167c4f3e2c8fa57d842\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\929d5a3fee9af167c4f3e2c8fa57d842\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\1150602879bba551022d171559af8939\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\1150602879bba551022d171559af8939\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\e5d23e341748fc39579417e23706181d\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\e5d23e341748fc39579417e23706181d\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\1150602879bba551022d171559af8939\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.example.tanzeel.Rubricon.MainActivity
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:16:27-74
+meta-data#preloaded_fonts
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:20:9-22:57
+	android:resource
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:22:13-54
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:21:13-43
+activity#com.example.tanzeel.Rubricon.TeacherSignUp
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:24:9-51
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:24:19-48
+activity#com.example.tanzeel.Rubricon.StudentSignUp
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:25:9-51
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:25:19-48
+activity#com.example.tanzeel.Rubricon.AdminSignUp
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:26:9-49
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:26:19-46
+activity#com.example.tanzeel.Rubricon.CourseCreation
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:27:9-52
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:27:19-49
+activity#com.example.tanzeel.Rubricon.StudentLogin
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:28:9-50
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:28:19-47
+activity#com.example.tanzeel.Rubricon.TeacherLogin
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:29:9-50
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:29:19-47
+activity#com.example.tanzeel.Rubricon.AdminLogin
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:30:9-48
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:30:19-45
+activity#com.example.tanzeel.Rubricon.Courses
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:31:9-45
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:31:19-42
+activity#com.example.tanzeel.Rubricon.CourseModification
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:32:9-56
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:32:19-53
+activity#com.example.tanzeel.Rubricon.Clo
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:33:9-41
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:33:19-38
+activity#com.example.tanzeel.Rubricon.CourseUpdate
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:34:9-50
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:34:19-47
+activity#com.example.tanzeel.Rubricon.AllocateCourses
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:35:9-53
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:35:19-50
+activity#com.example.tanzeel.Rubricon.StudentCourses
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:36:9-52
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:36:19-49
+activity#com.example.tanzeel.Rubricon.CloCreation
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:37:9-49
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:37:19-46
+activity#com.example.tanzeel.Rubricon.StudentPanel
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:38:9-50
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:38:19-47
+activity#com.example.tanzeel.Rubricon.StudentCourseList
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:39:9-55
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:39:19-52
+activity#com.example.tanzeel.Rubricon.TeacherCourseList
+ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:40:9-64
+	android:name
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml:40:19-52
+uses-sdk
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\2241c39d9d013302c50c7f193ab5075f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\2241c39d9d013302c50c7f193ab5075f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\60d9d7a0b3a05529e61e4e35ed339230\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\60d9d7a0b3a05529e61e4e35ed339230\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\929d5a3fee9af167c4f3e2c8fa57d842\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\929d5a3fee9af167c4f3e2c8fa57d842\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\7913b7513ad8209662dfa2ddd0c36efa\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\7913b7513ad8209662dfa2ddd0c36efa\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\48caf4caf0c1a9bd4c03acb6b9313ad9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\48caf4caf0c1a9bd4c03acb6b9313ad9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f78b37fc622dafbcae34e827b38dcfdc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f78b37fc622dafbcae34e827b38dcfdc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\35e0cace53629b0fca4be00e446ebe30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\35e0cace53629b0fca4be00e446ebe30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\5971d227be781e44b056c505e31c2d5e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\5971d227be781e44b056c505e31c2d5e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\69f2a3b06ba4231e1fcd12aee2266e8a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\69f2a3b06ba4231e1fcd12aee2266e8a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\53e5a808e230ac9262f5f430262e9624\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\53e5a808e230ac9262f5f430262e9624\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\bc21d756bca43ceae862afb16e689a8a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\bc21d756bca43ceae862afb16e689a8a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\28c0b1758811175adab167b23a0283ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\28c0b1758811175adab167b23a0283ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\286280b211946db9e4bb4efc8358d131\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\286280b211946db9e4bb4efc8358d131\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\5678f7b794236abb119c53f5c357a8a9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\5678f7b794236abb119c53f5c357a8a9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\5f2838a2a5eeb7057e9a99a0b994a00e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\5f2838a2a5eeb7057e9a99a0b994a00e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\d267039e8d22c3bb73bbb3278605577d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\d267039e8d22c3bb73bbb3278605577d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\e645e49748d683c264478ad58e6091f5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\e645e49748d683c264478ad58e6091f5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\5ded717d5b438a5ba204ba78e744fc58\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\5ded717d5b438a5ba204ba78e744fc58\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\dd7b1788d81de4144ef86bfd0dbe26ca\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\dd7b1788d81de4144ef86bfd0dbe26ca\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\1150602879bba551022d171559af8939\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\1150602879bba551022d171559af8939\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\e5d23e341748fc39579417e23706181d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\e5d23e341748fc39579417e23706181d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\0637c43907569f2be334178b3dedff4c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\0637c43907569f2be334178b3dedff4c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\5ff7dd0883e485c7511fba33b670ceaf\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\5ff7dd0883e485c7511fba33b670ceaf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\df315a4c97b93e9da6547b30a42b835a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\df315a4c97b93e9da6547b30a42b835a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\eb975d483274283f1bf6930ef279e7d1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\eb975d483274283f1bf6930ef279e7d1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\838763515b045c80785da97d8ca62bc5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\838763515b045c80785da97d8ca62bc5\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\1f444f6b03aa61517244588f323feb00\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\1f444f6b03aa61517244588f323feb00\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\fe3198aa4b91f1e481599ec0de300c89\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\fe3198aa4b91f1e481599ec0de300c89\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\85ddc01c4f842883e1fa5c8028466e75\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\85ddc01c4f842883e1fa5c8028466e75\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\b0cf00a35264e951ab277f40345ef3e1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\b0cf00a35264e951ab277f40345ef3e1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c6d963e137651bfd5906fda861aa6f21\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Hamza pc\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c6d963e137651bfd5906fda861aa6f21\AndroidManifest.xml:20:5-44
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+		ADDED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Semester-7\MAD\__Project\Rubricon\MADProject\app\src\main\AndroidManifest.xml

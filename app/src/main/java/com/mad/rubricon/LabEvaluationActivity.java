@@ -1,8 +1,10 @@
 package com.mad.rubricon;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ListView;
 
@@ -18,6 +20,10 @@ public class LabEvaluationActivity extends AppCompatActivity {
         CourseListCustomAdapter adapter = new CourseListCustomAdapter(courses, this);
         ListView coursesListView = (ListView) findViewById(R.id.mCourseList);
         coursesListView.setAdapter(adapter);
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
     }
     public ArrayList<Course> getCoursesList(){
         // get list of Courses  from Database
