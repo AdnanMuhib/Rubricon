@@ -60,10 +60,12 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
         return  lst;
     }
     public void GoToQuestionsActivity(String val){
-        //Intent intent = new Intent(this, MainActivity.class);
-        //intent.putExtra("CourseWeek", val);
+        Intent intent = new Intent(this, LabEvalSelectQuestionActivity.class);
+        intent.putExtra("CourseWeek", val);
+        intent.putExtra("CourseId", courseId);
+
         Log.i("DebugLog", "Selected Course week is:  "+ val);
-        //startActivity(intent);
+        startActivity(intent);
     }
 
 
