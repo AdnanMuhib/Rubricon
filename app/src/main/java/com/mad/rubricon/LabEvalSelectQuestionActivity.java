@@ -1,5 +1,6 @@
 package com.mad.rubricon;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -82,7 +83,12 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         return  questions;
     }
     public  void GoToEvaluationActivity(String val){
+        Intent intent = new Intent(this, LabEvalEnterMarksActivity.class);
+        intent.putExtra("CourseId", courseId);
+        intent.putExtra("CourseWeek", weekId);
+        intent.putExtra("QuestionId", val);
 
+        startActivity(intent);
     }
 
 }
