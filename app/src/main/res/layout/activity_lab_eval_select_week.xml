@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LabEvalSelectWeekActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_lab_week_list"
-        android:layout_width="374dp"
+        android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/AppTheme"
