@@ -1,9 +1,12 @@
 package com.mad.rubricon;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -53,9 +56,25 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionsList);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.single_item_list, questionsList);
 
         questionsListView.setAdapter(adapter);
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_question_activity);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Lab Questions");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     public String GetCourseTitle(){
         // Code to get the name of the course from database using Course Id i.e

@@ -1,6 +1,7 @@
 package com.mad.rubricon;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,8 +24,21 @@ public class LabEvaluationActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Lab Evaluation");
         actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public ArrayList<Course> getCoursesList(){
         // get list of Courses  from Database
 
@@ -40,24 +54,5 @@ public class LabEvaluationActivity extends AppCompatActivity {
 
         return crses;
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
-                return true;
 
-            case R.id.action_home:
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-
-    }
 }
