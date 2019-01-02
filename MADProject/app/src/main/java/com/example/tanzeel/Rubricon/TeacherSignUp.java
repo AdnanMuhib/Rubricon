@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 public class TeacherSignUp extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     TextView DOB;
@@ -103,6 +104,12 @@ public class TeacherSignUp extends AppCompatActivity implements AdapterView.OnIt
         if(!(android.util.Patterns.EMAIL_ADDRESS.matcher(TeacherEmail.getText().toString()).matches()))
         {
             showMessage("Error", "Please enter correct email");
+            return;
+        }
+        boolean b = Pattern.matches("[0-9]{5}-[0-9]{7}-[0-9]{1}", TeacherCNIC.getText().toString());
+        if(b==false)
+        {
+            showMessage("Error", "Please enter correct CNIC");
             return;
         }
 

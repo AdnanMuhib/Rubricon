@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 public class AdminSignUp extends AppCompatActivity {
     TextView DOB;
@@ -69,6 +70,12 @@ public class AdminSignUp extends AppCompatActivity {
                 pass.getText().toString().trim().length() == 0 ||
                 DOB.getText().toString().trim().length() == 0) {
             showMessage("Error", "Please enter all values");
+            return;
+        }
+        boolean b = Pattern.matches("[0-9]{5}-[0-9]{7}-[0-9]{1}", cnic.getText().toString());
+        if(b==false)
+        {
+            showMessage("Error", "Please enter correct CNIC");
             return;
         }
         if(!(android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()))

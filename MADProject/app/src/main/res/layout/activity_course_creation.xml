@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,7 +19,10 @@
         app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true">
-
+        <ScrollView
+            android:id="@+id/ScrollView01"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -144,7 +148,7 @@
                 android:layout_below="@+id/relativeLayout1"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_code"
@@ -175,7 +179,7 @@
                 android:layout_below="@+id/relativeLayout2"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_session"
@@ -194,7 +198,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/imgView_session"
                     android:background="@color/editTextBG"
-                    android:hint="Session ID"
+                    android:hint="Session ID (2015-CS)"
                     android:paddingLeft="20dp"
                     android:textSize="15sp" />
 
@@ -206,7 +210,7 @@
                 android:layout_below="@+id/relativeLayout3"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_theory"
@@ -239,7 +243,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:visibility="gone"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_lab"
@@ -271,7 +275,7 @@
                 android:layout_below="@+id/relativeLayout5"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_knowledge"
@@ -304,7 +308,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:visibility="gone"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_sections"
@@ -357,7 +361,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:visibility="gone"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_req"
@@ -396,8 +400,6 @@
                     android:onClick = "addCourse"
                     android:text="Add"
                     android:textColor="@color/white" />
-
-
             </RelativeLayout>
 
 
@@ -438,7 +440,7 @@
 
         </RelativeLayout>
 
-
+        </ScrollView>
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>

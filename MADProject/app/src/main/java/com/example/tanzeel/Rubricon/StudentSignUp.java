@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 public class StudentSignUp extends AppCompatActivity {
     TextView DOB;
@@ -79,6 +80,20 @@ public class StudentSignUp extends AppCompatActivity {
             showMessage("Error", "Please enter correct email");
             return;
         }
+
+        boolean b = Pattern.matches("[0-9]{4}-[a-zA-Z]{2,}-[0-9]{2,}", StdRegNo.getText().toString());
+        if(b==false)
+        {
+            showMessage("Error", "Please enter correct Registration No");
+            return;
+        }
+        boolean cnic = Pattern.matches("[0-9]{5}-[0-9]{7}-[0-9]{1}", StdCnic.getText().toString());
+        if(cnic==false)
+        {
+            showMessage("Error", "Please enter correct CNIC");
+            return;
+        }
+
         long result =  db.registerStudent( StdName.getText().toString(),StdEmail.getText().toString(), StdCnic.getText().toString(),DOB.getText().toString(),
                 StdPass.getText().toString(), StdRegNo.getText().toString());
         if(result == -1)

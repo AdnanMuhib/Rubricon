@@ -448,6 +448,20 @@ public class DBManager {
 
     }
 
+    public Cursor chkCourses()
+    {
+        database = dbHelper.getReadableDatabase();
+        Cursor c=database.rawQuery("Select DISTINCT CourseCode from CourseTable",new String[]{});
+        if (c.getCount() == 0) {
+            return null;
+        }
+        if (c != null) {
+            //   c.moveToFirst();
+        }
+        return c;
+
+    }
+
 
 
 }

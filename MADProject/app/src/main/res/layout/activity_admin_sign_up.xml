@@ -18,7 +18,10 @@
         app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true">
-
+        <ScrollView
+            android:id="@+id/ScrollView01"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -34,7 +37,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/circle"
                     android:padding="10dp"
                     android:src="@drawable/img_admin"
@@ -43,8 +46,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="REGISTER"
                     android:textColor="@color/white"
@@ -69,7 +72,7 @@
                 android:layout_below="@+id/imageView1"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="10dp">
 
                 <ImageView
                     android:id="@+id/imgView_userIcon"
@@ -103,7 +106,7 @@
                 android:layout_below="@+id/relativeLayout1"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_cnic"
@@ -135,7 +138,7 @@
                 android:layout_below="@+id/relativeLayout2"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_emailIcon"
@@ -168,7 +171,7 @@
                 android:layout_below="@+id/relativeLayout3"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_dob"
@@ -201,7 +204,7 @@
                 android:layout_below="@+id/relativeLayout4"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/imgView_passwordIcon"
@@ -236,7 +239,7 @@
                 android:layout_below="@+id/relativeLayout5"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:onClick="AdminRegister"
                 android:background="@color/colorPrimary"
                 android:fontFamily="sans-serif-medium"
@@ -248,8 +251,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btn_signUp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/transparent"
                 android:fontFamily="sans-serif"
                 android:onClick="adminLogin"
@@ -260,7 +263,7 @@
 
         </RelativeLayout>
 
-
+        </ScrollView>
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>

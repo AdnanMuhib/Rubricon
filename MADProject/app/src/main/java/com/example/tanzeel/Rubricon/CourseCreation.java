@@ -17,6 +17,8 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
+import java.util.regex.Pattern;
+
 public class CourseCreation extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner Section;
@@ -125,6 +127,13 @@ public class CourseCreation extends AppCompatActivity implements AdapterView.OnI
                     return;
                 }
 
+                boolean b = Pattern.matches("[0-9]{4}-[a-zA-Z]{2,}", SessionId.getText().toString());
+                if(b==false)
+                {
+                    showMessage("Error", "Please enter correct Session ID");
+                    return;
+                }
+
                 int ThCredit = Integer.parseInt(TheoryCHr.getText().toString());
                 long result =  db.registerCourse( Coursecode.getText().toString(),Coursetitle.getText().toString(), SessionId.getText().toString(),
                         ThCredit,LabCr,knowledgeArea.getText().toString());
@@ -147,6 +156,12 @@ public class CourseCreation extends AppCompatActivity implements AdapterView.OnI
                         LabCHr.getText().toString().trim().length() == 0 ||
                         knowledgeArea.getText().toString().trim().length() == 0) {
                     showMessage("Error", "Please enter all values");
+                    return;
+                }
+                boolean b = Pattern.matches("[0-9]{4}-[a-zA-Z]{2,}", SessionId.getText().toString());
+                if(b==false)
+                {
+                    showMessage("Error", "Please enter correct Session ID");
                     return;
                 }
                 int LabCr = Integer.parseInt(LabCHr.getText().toString());

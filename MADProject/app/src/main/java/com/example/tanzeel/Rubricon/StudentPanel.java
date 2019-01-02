@@ -12,6 +12,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class StudentPanel extends AppCompatActivity {
     TextView text;
@@ -55,9 +59,18 @@ public class StudentPanel extends AppCompatActivity {
     }
     public void registerCourse(View v)
     {
-        Intent i = new Intent(this,StudentCourses.class);
-        i.putExtra("RegNo",text.getText().toString());
-        startActivity(i);
+        Cursor c = db.chkCourses();
+        if(c==null || c.getCount()<=0)
+        {
+            showMessage("Error", "No Course Registered by an Admin!");
+            return;
+        }
+        else {
+            Intent i = new Intent(this, StudentCourses.class);
+            i.putExtra("RegNo", text.getText().toString());
+            startActivity(i);
+        }
+
     }
     public void viewCourses(View v)
     {
