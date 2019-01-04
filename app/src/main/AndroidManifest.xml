@@ -22,7 +22,7 @@
         <activity android:name=".DescriptionsActivity" />
         <activity android:name=".LabEvaluationActivity" />
         <activity android:name=".LabEvalSelectWeekActivity" />
-
+        <activity android:name=".LabEvalEnterMarksActivity" />
         <activity android:name=".LabEvalSelectQuestionActivity"></activity>
             <activity
                 android:name=".DrawerActivity"

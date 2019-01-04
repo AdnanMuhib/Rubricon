@@ -49,6 +49,22 @@ public class LabEvalEnterMarksActivity extends AppCompatActivity {
         marksLst.add(new CourseMarks(6,"2015-CS-56",10));
         marksLst.add(new CourseMarks(7,"2015-CS-57",4));
         marksLst.add(new CourseMarks(8,"2015-CS-58",5));
+        marksLst.add(new CourseMarks(1,"2015-CS-51",5));
+        marksLst.add(new CourseMarks(2,"2015-CS-52",6));
+        marksLst.add(new CourseMarks(3,"2015-CS-53",7));
+        marksLst.add(new CourseMarks(4,"2015-CS-54",8));
+        marksLst.add(new CourseMarks(5,"2015-CS-55",9));
+        marksLst.add(new CourseMarks(6,"2015-CS-56",10));
+        marksLst.add(new CourseMarks(7,"2015-CS-57",4));
+        marksLst.add(new CourseMarks(8,"2015-CS-58",5));
+        marksLst.add(new CourseMarks(1,"2015-CS-51",5));
+        marksLst.add(new CourseMarks(2,"2015-CS-52",6));
+        marksLst.add(new CourseMarks(3,"2015-CS-53",7));
+        marksLst.add(new CourseMarks(4,"2015-CS-54",8));
+        marksLst.add(new CourseMarks(5,"2015-CS-55",9));
+        marksLst.add(new CourseMarks(6,"2015-CS-56",10));
+        marksLst.add(new CourseMarks(7,"2015-CS-57",4));
+        marksLst.add(new CourseMarks(8,"2015-CS-58",5));
         return  marksLst;
     }
 }
