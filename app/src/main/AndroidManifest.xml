@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RubricsActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,5 +22,14 @@
         <activity android:name=".DescriptionsActivity" />
         <activity android:name=".LabActivity"></activity>
     </application>
+        <activity android:name=".LabEvaluationActivity" />
+        <activity android:name=".LabEvalSelectWeekActivity" />
+
+        <activity android:name=".LabEvalSelectQuestionActivity"></activity>
+            <activity
+                android:name=".DrawerActivity"
+                android:label="@string/title_activity_drawer"></activity>
+        </application>
+
 
 </manifest>

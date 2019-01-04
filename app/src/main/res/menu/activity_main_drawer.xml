@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon = "@drawable/ic_camera_black_24dp"
+            android:title="Import" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon = "@drawable/ic_camera_black_24dp"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_lab_eval"
+            android:icon = "@drawable/ic_spellcheck"
+            android:title="Lab Evaluation" />
+        <item
+            android:id="@+id/nav_lab_report"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Lab Report" />
+    </group>
+</menu>

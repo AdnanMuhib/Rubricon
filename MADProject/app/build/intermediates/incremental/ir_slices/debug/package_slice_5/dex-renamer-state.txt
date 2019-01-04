@@ -1,0 +1,4 @@
+#Tue Jan 01 15:34:59 PKT 2019
+base.0=E\:\\Semester-7\\MAD\\__Project\\Rubricon\\MADProject\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+path.0=classes.dex
+renamed.0=classes.dex
