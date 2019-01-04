@@ -353,26 +353,14 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 android:background="@color/colorPrimary"
                 android:fontFamily="sans-serif-medium"
                 android:text="SIGN UP"
                 android:onClick="Register"
                 android:textColor="@color/white" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_signUp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/transparent"
-                android:fontFamily="sans-serif"
-                android:text="Already a member? Login Here"
-                android:onClick="teachersLogin"
-                android:textAllCaps="false"
-                android:textColor="@color/textColor"
-                android:textSize="13sp" />
+
 
         </RelativeLayout>
 

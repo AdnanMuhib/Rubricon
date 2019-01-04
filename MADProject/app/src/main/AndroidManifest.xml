@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tanzeel.Rubricon">
+    package="com.mad.Rubricon">
 
     <application
         android:allowBackup="true"
@@ -8,8 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.Design.Light">
+        <activity android:name=".Stats">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +25,6 @@
         <activity android:name=".StudentSignUp" />
         <activity android:name=".AdminSignUp" />
         <activity android:name=".CourseCreation" />
-        <activity android:name=".StudentLogin" />
-        <activity android:name=".TeacherLogin" />
-        <activity android:name=".AdminLogin" />
         <activity android:name=".Courses" />
         <activity android:name=".CourseModification" />
         <activity android:name=".Clo" />
@@ -37,7 +34,10 @@
         <activity android:name=".CloCreation" />
         <activity android:name=".StudentPanel" />
         <activity android:name=".StudentCourseList" />
-        <activity android:name=".TeacherCourseList"></activity>
+        <activity android:name=".TeacherCourseList" />
+        <activity android:name=".Login" />
+        <activity android:name=".MainActivity" />
+
     </application>
 
 </manifest>

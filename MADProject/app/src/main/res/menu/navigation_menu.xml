@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/teacher"
+        android:icon="@drawable/img_admin"
+        android:title="Teacher Registration"/>
+    <item android:id="@+id/student"
+        android:icon="@drawable/img_admin"
+        android:title="Student Registration"/>
+    <item android:id="@+id/admin"
+        android:icon="@drawable/img_admin"
+        android:title="Admin Registration"/>
+
+</menu>
