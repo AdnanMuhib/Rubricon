@@ -5,7 +5,7 @@ public class GradingLevel {
     double marks;
     int rubricID;
 
-    public GradingLevel(String title, double marks, int rubricID) {
+    public GradingLevel(String title, double marks) {
         this.title = title;
         this.marks = marks;
         this.rubricID = rubricID;
