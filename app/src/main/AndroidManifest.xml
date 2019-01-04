@@ -20,6 +20,8 @@
         <activity android:name=".AddCloActivity" />
         <activity android:name=".CloSubCategoryActivity" />
         <activity android:name=".DescriptionsActivity" />
+        <activity android:name=".LabActivity"></activity>
+    </application>
         <activity android:name=".LabEvaluationActivity" />
         <activity android:name=".LabEvalSelectWeekActivity" />
 

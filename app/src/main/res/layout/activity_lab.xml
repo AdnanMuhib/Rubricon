@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CloSubCategoryActivity">
+    tools:context=".LabActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_lab_eval"
@@ -55,9 +55,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/ic_launcher_background"
                     android:padding="10dp"
-
                     android:tint="@color/white" />
-
                 <TextView
                     android:id="@+id/textViewTeacherName"
                     android:layout_width="wrap_content"
@@ -65,9 +63,10 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="JOHN DOE"
+                    android:text="Lab Creation"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
+
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -100,7 +99,6 @@
 
 
             </LinearLayout>
-
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="20dp"
@@ -110,7 +108,6 @@
                 android:layout_marginTop="-10dp"
                 android:rotation="45"
                 android:src="@drawable/square" />
-
             <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -118,64 +115,95 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/imageView1"
-                tools:context=".DescriptionsActivity"
+                tools:context=".LabActivity"
                 tools:layout_editor_absoluteY="92dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:gravity="center"
-                        android:text="Title :" />
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/titlename2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Lab Title :" />
 
-                    <Spinner
-                        android:id="@+id/spCLOID"
-                        android:layout_width="fill_parent"
+                        <EditText
+                            android:id="@+id/textMaxSpeed"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:hint="Lab Title " />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
                         android:gravity="center"
-                        android:text="Sub-Category" />
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/txt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Lab Marks :" />
 
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="fill_parent"
+                        <EditText
+                            android:id="@+id/textMarks"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:hint="Lab Marks " />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:onClick="addsubCategory"
-                        android:text="Add " />
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/titlename3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Marks Weightage :" />
 
-                </LinearLayout>
+                        <EditText
+                            android:id="@+id/textMarksWeightage"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:hint="Marks Weightage" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/titlename4"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Questions:" />
 
-                <ListView
-                    android:id="@+id/subCategoryList"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
+                        <Button
+                            android:id="@+id/btnAddCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Add" />
+                    </LinearLayout>
                 </LinearLayout>
             </android.support.constraint.ConstraintLayout>
         </RelativeLayout>

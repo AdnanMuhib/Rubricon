@@ -13,9 +13,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NewRubricActivity extends AppCompatActivity {
 
     ListView levels;
+    int level;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +27,11 @@ public class NewRubricActivity extends AppCompatActivity {
 
         levels = findViewById(R.id.levelList);
 
-        LeverAdapter leverAdapter = new LeverAdapter(this,R.layout.list_item, 3);
+        Intent intent = getIntent();
+        level = getLevels(intent);
+        LevelAdapter levelAdapter = new LevelAdapter(this,R.layout.list_item, level);
 
-        levels.setAdapter(leverAdapter);
+        levels.setAdapter(levelAdapter);
 
     }
 
@@ -34,13 +40,51 @@ public class NewRubricActivity extends AppCompatActivity {
     }
 
     public void saveRubric(View view){
+        //        LevelAdapter adapter =(LevelAdapter) levels.getAdapter();
+        List<String> marksList = new ArrayList<>();
+        for (int i =0; i<level; i++){
+            View item = levels.getChildAt(i);
+            EditText etMarks = item.findViewById(R.id.marks);
+            String marks = etMarks.getText().toString().trim();
+            if(marks.equals("")) {
+                etMarks.setError("Please enter marks!");
+                return;
+            }
+            marksList.add(marks);
+        }
+        for (String marks:marksList){
+            Rubric.rubric.addGradingLevel(new GradingLevel("Level",Integer.parseInt(marks)));
+        }
+
         startActivity(new Intent(this,AddCloActivity.class));
     }
 
-    public class LeverAdapter extends ArrayAdapter {
+    public int getLevels(Intent intent){
+        String levels = intent.getStringExtra("levels");
+        switch (levels){
+            case "one":{
+                return 1;
+            }
+            case "two":{
+                return 2;
+            }
+            case "three":{
+                return 3;
+            }
+            case "four":{
+                return 4;
+            }
+            case "five":{
+                return 5;
+            }
+        }
+        return 0;
+    }
+
+    public class LevelAdapter extends ArrayAdapter {
         int levels;
         private Context context;
-        public LeverAdapter(@NonNull Context context, int resource, int levels) {
+        public LevelAdapter(@NonNull Context context, int resource, int levels) {
             super(context, resource,levels);
             this.levels = levels;
             this.context = context;
@@ -73,7 +117,5 @@ public class NewRubricActivity extends AppCompatActivity {
 
             return view;
         }
-
-
     }
 }
