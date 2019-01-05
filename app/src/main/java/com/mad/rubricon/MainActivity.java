@@ -95,11 +95,15 @@ public class MainActivity extends AppCompatActivity {
 
     public  void btnLabEvaluationClicked(){
         Intent intent = new Intent(this, LabEvaluationActivity.class);
+        intent.putExtra("ActivityName","LabEvaluation");
+
         startActivity(intent);
     }
 
     public  void btnLabReportingClicked(){
-
+        Intent intent = new Intent(this, LabEvaluationActivity.class);
+        intent.putExtra("ActivityName","LabReporting");
+        startActivity(intent);
     }
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
