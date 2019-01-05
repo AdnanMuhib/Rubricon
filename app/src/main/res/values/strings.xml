@@ -7,6 +7,34 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string-array name="clo">
+        <item>Average</item>
+        <item> Above Average</item>
+        <item>Good</item>
+        <item>  Above Good</item>
+        <item> Excellent</item>
+        <item>  All</item>
+    </string-array>
+    <string-array name="rubric">
+        <item>Average</item>
+        <item> Above Average</item>
+        <item>Good</item>
+        <item>  Above Good</item>
+        <item> Excellent</item>
+        <item>  All</item>
+    </string-array>
+    <string-array name="criteria">
+        <item>Average</item>
+        <item> Above Average</item>
+        <item>Good</item>
+        <item>  Above Good</item>
+        <item> Excellent</item>
+        <item>  All</item>
+    </string-array>
+    <string-array name="type">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string name="title_activity_drawer">DrawerActivity</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>

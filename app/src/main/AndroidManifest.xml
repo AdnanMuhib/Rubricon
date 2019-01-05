@@ -20,15 +20,15 @@
         <activity android:name=".AddCloActivity" />
         <activity android:name=".CloSubCategoryActivity" />
         <activity android:name=".DescriptionsActivity" />
-        <activity android:name=".LabActivity"></activity>
+        <activity android:name=".LabActivity" />
         <activity android:name=".LabEvaluationActivity" />
         <activity android:name=".LabEvalSelectWeekActivity" />
         <activity android:name=".LabEvalEnterMarksActivity" />
-        <activity android:name=".LabEvalSelectQuestionActivity"></activity>
-            <activity
-                android:name=".DrawerActivity"
-                android:label="@string/title_activity_drawer"></activity>
-        </application>
-
+        <activity android:name=".LabEvalSelectQuestionActivity" />
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer" />
+        <activity android:name=".LabReportActivity"></activity>
+    </application>
 
 </manifest>

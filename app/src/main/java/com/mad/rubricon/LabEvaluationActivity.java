@@ -35,7 +35,9 @@ public class LabEvaluationActivity extends AppCompatActivity {
                     intent.putExtra("crsId","1");
                     startActivity(intent);
                 } else {
-                    // dosri py bhejo
+                    Intent intent = new Intent(LabEvaluationActivity.this, LabReportActivity.class);
+                    intent.putExtra("crsId","1");
+                    startActivity(intent);
                 }
 
             }
