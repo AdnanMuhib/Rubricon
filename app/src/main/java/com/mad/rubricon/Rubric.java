@@ -6,14 +6,18 @@ import java.util.ArrayList;
 public class Rubric {
     public static Rubric rubric = new Rubric();
     String courseID;
+    String teacherID;
     String rubricTitle;
+    String section;
     ArrayList<RubricCLO> rubricCLOs = new ArrayList<>();
     ArrayList<GradingLevel> gradingLevels = new ArrayList<>();
 
 
-    private Rubric(String courseID, String rubricTitle) {
+    private Rubric(String courseID, String rubricTitle, String teacherID, String section) {
         this.courseID = courseID;
         this.rubricTitle = rubricTitle;
+        this.teacherID = teacherID;
+        this.section = section;
     }
     private Rubric(){}
 
@@ -39,5 +43,21 @@ public class Rubric {
 
     public void addGradingLevel(GradingLevel level){
         gradingLevels.add(level);
+    }
+
+    public String getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(String teacherID) {
+        this.teacherID = teacherID;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
     }
 }

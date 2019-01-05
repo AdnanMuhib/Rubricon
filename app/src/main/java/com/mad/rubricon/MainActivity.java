@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.nav_lab_report:
                                 btnLabReportingClicked();
                                 break;
+                            case R.id.nav_lab_create:
+                                btnLabCreateClicked();
+                                break;
+                            case R.id.nav_rubric:
+                                btnRubricClicked();
+                                break;
                             default:
                                 break;
                         }
@@ -98,27 +104,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public  void btnLabCreateClicked(){
+        Intent intent = new Intent(this, LabActivity.class);
+        startActivity(intent);
+    }
+    public  void btnRubricClicked(){
+        Intent intent = new Intent(this, RubricsActivity.class);
+        startActivity(intent);
+    }
     public  void btnLabReportingClicked(){
 
     }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_settings:
-//                // User chose the "Settings" item, show the app settings UI...
-//                return true;
-//
-//            case R.id.action_home:
-//                Intent intent = new Intent(this, MainActivity.class);
-//                startActivity(intent);
-//                return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//
-//    }
 }

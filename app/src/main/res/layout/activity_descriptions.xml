@@ -141,7 +141,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:gravity="center"
-                            android:text="Title :" />
+                            android:text="Title :"
+                            android:textColor="@android:color/black" />
 
                         <EditText
                             android:id="@+id/editText"
@@ -149,7 +150,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:gravity="center"
-                            android:hint="Enter Title " />
+                            android:hint="Enter Title "
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -164,7 +166,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:gravity="center"
-                            android:text="Description :" />
+                            android:text="Description :"
+                            android:textColor="@android:color/black" />
 
                         <EditText
                             android:id="@+id/editText2"
@@ -172,7 +175,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:gravity="center"
-                            android:hint="Enter Description " />
+                            android:hint="Enter Description "
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
 
                     <ListView
@@ -193,7 +197,6 @@
                             android:layout_height="wrap_content"
                             android:text="save" />
                     </TableRow>
-
                 </LinearLayout>
 
             </android.support.constraint.ConstraintLayout>

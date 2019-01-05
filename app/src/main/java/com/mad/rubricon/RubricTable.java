@@ -14,11 +14,13 @@ public class RubricTable {
     public static final String KEY_ROWID = "_id";
     public static final String KEY_COURSE_ID = "course_id";
     public static final String KEY_RUBRIC_TITLE_ID = "rubric_title";
+    public static final String KEY_TEACHER_ID = "teacher_id";
+    public static final String KEY_SECTION = "_section";
 
     private final String DATABASE_NAME = "LabGraderDB";
     private final String DATABASE_TABLE = "RubricTable";
 
-    private final int DATABASE_VERSION = 1;
+    private final int DATABASE_VERSION = 2;
     private RubricTable.DBHelper ourHelper;
     private final Context ourContext;
     private SQLiteDatabase ourDatabase;
@@ -44,6 +46,8 @@ public class RubricTable {
             String sqlCode = "CREATE TABLE " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
                     KEY_COURSE_ID + " INTEGER, " +
+                    KEY_TEACHER_ID + " TEXT, " +
+                    KEY_SECTION + " TEXT, " +
                     KEY_RUBRIC_TITLE_ID + " TEXT);";
             db.execSQL(sqlCode);
         }
@@ -74,16 +78,18 @@ public class RubricTable {
         this.ourHelper.close();
     }
 
-    public long createEntry(int id, int couseID,String rubricTitle){
+    public long createEntry(int id, int couseID,String rubricTitle, String teacher_id, String section){
         ContentValues cv = new ContentValues();
         cv.put(KEY_ROWID,id);
         cv.put(KEY_COURSE_ID,couseID);
         cv.put(KEY_RUBRIC_TITLE_ID,rubricTitle);
+        cv.put(KEY_TEACHER_ID, teacher_id);
+        cv.put(KEY_SECTION, section);
         return ourDatabase.insert(DATABASE_TABLE,null,cv);
     }
 
     public String getData(){
-        String [] colomns = new String []{KEY_ROWID,KEY_COURSE_ID,KEY_RUBRIC_TITLE_ID};
+        String [] colomns = new String []{KEY_ROWID,KEY_COURSE_ID,KEY_RUBRIC_TITLE_ID,KEY_TEACHER_ID, KEY_SECTION};
 
         Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
 
@@ -92,9 +98,12 @@ public class RubricTable {
         int iRowID = cursor.getColumnIndex(KEY_ROWID);
         int iRubricTitleID = cursor.getColumnIndex(KEY_RUBRIC_TITLE_ID);
         int iCourseID = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeacherID = cursor.getColumnIndex(KEY_TEACHER_ID);
+        int iSection = cursor.getColumnIndex(KEY_SECTION);
 
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            result += cursor.getString(iRowID) + "," + cursor.getString(iRubricTitleID)+',' + cursor.getString(iCourseID) + ":";
+            result += cursor.getString(iRowID) + "," + cursor.getString(iRubricTitleID)+"," + cursor.getString(iCourseID)
+                    +","+ cursor.getString(iTeacherID)+ "," + cursor.getString(iSection) + ":";
         }
         cursor.close();
 
