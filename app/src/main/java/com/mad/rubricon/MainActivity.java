@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
         QuestionTable question_table = new QuestionTable(this);
         question_table.create();
 
+        StudentMarksTable marksTable = new StudentMarksTable(this);
+        marksTable.create();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();

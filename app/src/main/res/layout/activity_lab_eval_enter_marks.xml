@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:background="@color/transparent"
-            android:onClick="onSaveClick"
             android:text="Save"
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="16dp"

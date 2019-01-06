@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class LabEvalSelectQuestionActivity extends AppCompatActivity {
     private  int courseId;
     private String weekId;
-    private String teacherId;
+    private int teacherId;
     private String weekText;
 
     TextView courseTitleView;
@@ -34,7 +34,7 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         courseId = getIntent().getIntExtra("CourseId", 0);
         weekText = getIntent().getStringExtra("CourseWeek");
         weekId = getIntent().getStringExtra("CourseWeekId");
-        teacherId = getIntent().getStringExtra("TeacherId");
+        teacherId = getIntent().getIntExtra("TeacherId", 0);
         courseTitleView = (TextView) findViewById(R.id.textViewCourseTitle);
 
         // get the course title from db using id and display
