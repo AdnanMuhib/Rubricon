@@ -33,9 +33,9 @@ public class DescriptionsActivity extends AppCompatActivity {
         title = findViewById(R.id.etCriteriaTitle);
         description = findViewById(R.id.etDescription);
 
-        desList = findViewById(R.id.subCategoryList);
+        desList = findViewById(R.id.gradingLevelList);
         level = Rubric.rubric.gradingLevels.size();
-        descriptionAdapter adapter = new descriptionAdapter(this,R.layout.category_item, level);
+        descriptionAdapter adapter = new descriptionAdapter(this,R.layout.level_item_description, level);
         desList.setAdapter(adapter);
 
         Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
@@ -45,6 +45,8 @@ public class DescriptionsActivity extends AppCompatActivity {
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -83,7 +85,6 @@ public class DescriptionsActivity extends AppCompatActivity {
 
             Criteria.criteria.setDescription(des);
             Criteria.criteria.setTitle(criteriaTitle);
-
 
             int i = 1;
             for (String marks:descList){
