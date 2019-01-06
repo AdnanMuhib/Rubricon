@@ -134,7 +134,7 @@
                     android:layout_margin="16dp"
                     android:onClick="AddClo"
                     android:src="@android:drawable/ic_input_add"
-                    app:backgroundTint="@color/colorAccent" />
+                    app:backgroundTint="@color/colorPrimary" />
 
             </android.support.design.widget.CoordinatorLayout>
         </RelativeLayout>

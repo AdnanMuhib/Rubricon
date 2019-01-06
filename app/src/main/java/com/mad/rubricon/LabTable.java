@@ -14,11 +14,15 @@ public class LabTable {
     public static final String KEY_LAB_TITLE = "lab_title";
     public static final String KEY_MARKS = "_marks";
     public static final String KEY_MARKS_WEIGHT = "marks_weight";
+    public static final String KEY_TEACHER_ID = "teacher_id";
+    public static final String KEY_SECTION = "_section";
+    public static final String KEY_COURSE_ID = "course_id";
 
     private final String DATABASE_NAME = "LabGraderDB";
     private final String DATABASE_TABLE = "LabTable";
 
-    private final int DATABASE_VERSION = 1;
+    private final int DATABASE_VERSION = 2
+            ;
     private LabTable.DBHelper ourHelper;
     private final Context ourContext;
     private SQLiteDatabase ourDatabase;
@@ -44,6 +48,9 @@ public class LabTable {
             String sqlCode = "CREATE TABLE " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
                     KEY_LAB_TITLE + " TEXT, "+
+                    KEY_COURSE_ID + " TEXT, "+
+                    KEY_SECTION + " TEXT, "+
+                    KEY_TEACHER_ID + " TEXT, "+
                     KEY_MARKS_WEIGHT + " DOUBLE, " +
                     KEY_MARKS + " DOUBLE);";
             db.execSQL(sqlCode);
@@ -75,17 +82,20 @@ public class LabTable {
         this.ourHelper.close();
     }
 
-    public long createEntry(int id, double marks,double mWeight, String title){
+    public long createEntry(int id, double marks,double mWeight, String title, String teacherId, String courseID, String section){
         ContentValues cv = new ContentValues();
         cv.put(KEY_ROWID,id);
         cv.put(KEY_LAB_TITLE,title);
         cv.put(KEY_MARKS,marks);
         cv.put(KEY_MARKS_WEIGHT,mWeight);
+        cv.put(KEY_TEACHER_ID,teacherId);
+        cv.put(KEY_COURSE_ID, courseID);
+        cv.put(KEY_SECTION, section);
         return ourDatabase.insert(DATABASE_TABLE,null,cv);
     }
 
     public String getData(){
-        String [] colomns = new String []{KEY_ROWID,KEY_LAB_TITLE,KEY_MARKS_WEIGHT,KEY_MARKS};
+        String [] colomns = new String []{KEY_ROWID,KEY_LAB_TITLE,KEY_MARKS_WEIGHT,KEY_MARKS,KEY_COURSE_ID,KEY_TEACHER_ID,KEY_SECTION};
 
         Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
 
@@ -95,13 +105,30 @@ public class LabTable {
         int iTitle = cursor.getColumnIndex(KEY_LAB_TITLE);
         int iMarksWeight = cursor.getColumnIndex(KEY_MARKS_WEIGHT);
         int iMarks = cursor.getColumnIndex(KEY_MARKS);
+        int iCourseId = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeacherId = cursor.getColumnIndex(KEY_TEACHER_ID);
+        int iSection = cursor.getColumnIndex(KEY_SECTION);
 
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            result += cursor.getString(iRowID) +',' +cursor.getString(iTitle)+ "," + cursor.getString(iMarksWeight)+',' + cursor.getString(iMarks) + ":";
+            result += cursor.getString(iRowID) +',' +cursor.getString(iTitle)+ "," + cursor.getString(iMarksWeight)+',' +
+                    cursor.getString(iMarks) + ',' +cursor.getString(iCourseId) + ',' +cursor.getString(iTeacherId) +
+                    ',' +cursor.getString(iSection) + ":";
         }
         cursor.close();
 
         return result;
+    }
+
+    public int getCount(){
+        String [] colomns = new String []{KEY_ROWID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,KEY_ROWID);
+
+        int count = 0;
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            count++;
+        }
+        return count;
     }
 
     public ArrayList<RubricCLO> sort(ArrayList<RubricCLO> list){

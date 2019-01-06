@@ -17,5 +17,13 @@
             android:id="@+id/nav_lab_report"
             android:icon = "@drawable/ic_show_chart"
             android:title="Lab Report" />
+        <item
+            android:id="@+id/nav_rubric"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Rubric" />
+        <item
+            android:id="@+id/nav_lab_create"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Lab Creation" />
     </group>
 </menu>

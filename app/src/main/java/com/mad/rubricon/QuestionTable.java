@@ -19,7 +19,7 @@ public class QuestionTable {
     private final String DATABASE_NAME = "LabGraderDB";
     private final String DATABASE_TABLE = "QuestionTable";
 
-    private final int DATABASE_VERSION = 1;
+    private final int DATABASE_VERSION = 2;
     private QuestionTable.DBHelper ourHelper;
     private final Context ourContext;
     private SQLiteDatabase ourDatabase;
@@ -104,6 +104,17 @@ public class QuestionTable {
         cursor.close();
 
         return result;
+    }
+
+    public int getCount(){
+        String [] colomns = new String []{KEY_ROWID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+        int count = 0;
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            count++;
+        }
+        return count;
     }
 
     public ArrayList<RubricCLO> sort(ArrayList<RubricCLO> list){

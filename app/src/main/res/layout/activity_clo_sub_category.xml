@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:gravity="center"
-                        android:text="Title :" />
+                        android:text="Select CLO" />
 
                     <Spinner
                         android:id="@+id/spCLOID"

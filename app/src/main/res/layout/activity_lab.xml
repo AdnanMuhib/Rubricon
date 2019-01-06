@@ -32,8 +32,10 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_lab_eval">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_lab_eval"
+        app:layout_constraintVertical_bias="1.0">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -56,6 +58,7 @@
                     android:background="@drawable/ic_launcher_background"
                     android:padding="10dp"
                     android:tint="@color/white" />
+
                 <TextView
                     android:id="@+id/textViewTeacherName"
                     android:layout_width="wrap_content"
@@ -99,6 +102,7 @@
 
 
             </LinearLayout>
+
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="20dp"
@@ -108,7 +112,8 @@
                 android:layout_marginTop="-10dp"
                 android:rotation="45"
                 android:src="@drawable/square" />
-            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+            <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/relativeLayout1"
@@ -117,95 +122,176 @@
                 android:layout_below="@+id/imageView1"
                 tools:context=".LabActivity"
                 tools:layout_editor_absoluteY="92dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/titlename2"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:gravity="center"
-                            android:text="Lab Title :" />
+                            android:paddingLeft="30dp"
+                            android:text="Lab Title :"
+                            android:textColor="@android:color/black" />
 
                         <EditText
-                            android:id="@+id/textMaxSpeed"
+                            android:id="@+id/etLabTitle"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:gravity="center"
-                            android:hint="Lab Title " />
+                            android:hint="Lab Title "
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/txt"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:gravity="center"
-                            android:text="Lab Marks :" />
+                            android:paddingLeft="30dp"
+                            android:text="Lab Marks :"
+                            android:textColor="@android:color/black" />
 
                         <EditText
-                            android:id="@+id/textMarks"
+                            android:id="@+id/etLabMarks"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:gravity="center"
-                            android:hint="Lab Marks " />
+                            android:hint="Lab Marks "
+                            android:inputType="number"
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/titlename3"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:gravity="center"
-                            android:text="Marks Weightage :" />
+                            android:paddingLeft="30dp"
+                            android:text="Marks Weightage :"
+                            android:textColor="@android:color/black" />
 
                         <EditText
-                            android:id="@+id/textMarksWeightage"
+                            android:id="@+id/etLMWeightage"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:gravity="center"
-                            android:hint="Marks Weightage" />
+                            android:hint="Marks Weightage"
+                            android:inputType="number"
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/titlename4"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:gravity="center"
-                            android:text="Questions:" />
+                            android:paddingLeft="30dp"
+                            android:text="Questions:"
+                            android:textColor="@android:color/black" />
 
                         <Button
                             android:id="@+id/btnAddCategory"
-                            android:layout_width="wrap_content"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
                             android:gravity="center"
-                            android:text="Add" />
+                            android:text="Add"
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Q.No"
+                            android:textColor="@android:color/black" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="CLO"
+                            android:textColor="@android:color/black" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Marks"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/relativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/imageView1"
+                        tools:context=".NewRubricActivity"
+                        tools:layout_editor_absoluteY="92dp">
+
+                    <ListView
+                        android:id="@+id/questionsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="50dp"/>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:foregroundGravity="bottom"
+                        android:gravity="bottom|center">
+
+                        <Button
+                            android:id="@+id/btnNext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="createLab"
+                            android:background="@color/colorPrimary"
+                            android:text="Create Lab" />
+                    </TableRow>
+                    </android.support.design.widget.CoordinatorLayout>
                 </LinearLayout>
-            </android.support.constraint.ConstraintLayout>
+            </android.support.design.widget.CoordinatorLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

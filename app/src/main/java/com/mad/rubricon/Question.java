@@ -2,12 +2,12 @@ package com.mad.rubricon;
 
 public class Question {
     double marks;
-    int rubric_id;
+    int rubric_clo_id;
     int lab_id;
 
     public Question(double marks, int rubric_id, int lab_id) {
         this.marks = marks;
-        this.rubric_id = rubric_id;
+        this.rubric_clo_id = rubric_id;
         this.lab_id = lab_id;
     }
 
@@ -20,11 +20,11 @@ public class Question {
     }
 
     public int getRubric_id() {
-        return rubric_id;
+        return rubric_clo_id;
     }
 
     public void setRubric_id(int rubric_id) {
-        this.rubric_id = rubric_id;
+        this.rubric_clo_id = rubric_id;
     }
 
     public int getLab_id() {

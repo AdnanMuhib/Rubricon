@@ -26,10 +26,8 @@ public class NewRubricActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_rubric);
 
         levels = findViewById(R.id.levelList);
-
-        Intent intent = getIntent();
-        level = getLevels(intent);
-        LevelAdapter levelAdapter = new LevelAdapter(this,R.layout.list_item, level);
+        level = Rubric.rubric.gradingLevels.size();
+        LevelAdapter levelAdapter = new LevelAdapter(this,R.layout.level_item_marks, level);
 
         levels.setAdapter(levelAdapter);
 
@@ -40,7 +38,6 @@ public class NewRubricActivity extends AppCompatActivity {
     }
 
     public void saveRubric(View view){
-        //        LevelAdapter adapter =(LevelAdapter) levels.getAdapter();
         List<String> marksList = new ArrayList<>();
         for (int i =0; i<level; i++){
             View item = levels.getChildAt(i);
@@ -52,33 +49,14 @@ public class NewRubricActivity extends AppCompatActivity {
             }
             marksList.add(marks);
         }
+        int i = 1;
         for (String marks:marksList){
-            Rubric.rubric.addGradingLevel(new GradingLevel("Level",Integer.parseInt(marks)));
+            Rubric.rubric.addGradingLevel(new GradingLevel("Level "+i,Integer.parseInt(marks)));
+            i++;
         }
+        Rubric.rubric.saveRubric(this);
 
         startActivity(new Intent(this,AddCloActivity.class));
-    }
-
-    public int getLevels(Intent intent){
-        String levels = intent.getStringExtra("levels");
-        switch (levels){
-            case "one":{
-                return 1;
-            }
-            case "two":{
-                return 2;
-            }
-            case "three":{
-                return 3;
-            }
-            case "four":{
-                return 4;
-            }
-            case "five":{
-                return 5;
-            }
-        }
-        return 0;
     }
 
     public class LevelAdapter extends ArrayAdapter {
@@ -106,7 +84,7 @@ public class NewRubricActivity extends AppCompatActivity {
             if (null == view) {
                 LayoutInflater layoutInflater = (LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = layoutInflater.inflate(R.layout.list_item, null);
+                view = layoutInflater.inflate(R.layout.level_item_marks, null);
             }
 
             TextView level_ = (TextView) view.findViewById(R.id.level);

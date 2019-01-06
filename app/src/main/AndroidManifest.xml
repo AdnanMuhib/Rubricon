@@ -18,19 +18,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewRubricActivity" />
-        <activity android:name=".AddCloActivity" />
-        <activity android:name=".CloSubCategoryActivity" />
+        <activity android:name=".AddCloActivity"
+            android:theme="@style/AppThemeRubric"/>
+        <activity android:name=".CloSubCategoryActivity"
+            android:theme="@style/AppThemeRubric"/>
         <activity android:name=".DescriptionsActivity" />
         <activity android:name=".LabActivity" />
         <activity android:name=".LabEvaluationActivity" />
         <activity android:name=".LabEvalSelectWeekActivity" />
         <activity android:name=".LabEvalEnterMarksActivity" />
         <activity android:name=".LabEvalSelectQuestionActivity" />
+        <activity android:name=".RubricsActivity"
+            android:theme="@style/AppThemeRubric"/>
         <activity
             android:name=".DrawerActivity"
             android:label="@string/title_activity_drawer" />
         <activity android:name=".LabReportActivity" />
         <activity android:name=".LabReportViewActivity"></activity>
     </application>
-
 </manifest>

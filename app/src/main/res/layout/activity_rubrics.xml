@@ -138,7 +138,8 @@
                     android:layout_gravity="end|bottom"
                     android:layout_margin="16dp"
                     android:onClick="createRubric"
-                    android:src="@android:drawable/ic_input_add" />
+                    android:src="@android:drawable/ic_input_add"
+                    app:backgroundTint="@color/colorPrimary" />
 
             </android.support.design.widget.CoordinatorLayout>
 
