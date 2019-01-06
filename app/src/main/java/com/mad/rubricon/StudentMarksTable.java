@@ -14,7 +14,7 @@ public class StudentMarksTable {
     public static final String KEY_ROWID = "_id";
     public static final String KEY_STUDENT_ID = "student_id";
     public static final String KEY_TEACHER_ID = "teacher_id";
-    public static final String KEY_LAB_ID = "lab_id";
+    public static final String KEY_COURSE_ID = "course_id";
     public static final String KEY_WEEK_ID = "week_id";
     public static final String KEY_QUESTION_ID = "question_id";
     public static final String KEY_OBTAINED_MARKS = "obtained_marks";
@@ -48,9 +48,9 @@ public class StudentMarksTable {
             String sqlCode = "CREATE TABLE " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
                     KEY_STUDENT_ID + " INTEGER, " +
-                    KEY_LAB_ID + " INTEGER, "+
                     KEY_WEEK_ID + " INTEGER, "+
                     KEY_QUESTION_ID + " INTEGER, "+
+                    KEY_COURSE_ID + " INTEGER, "+
                     KEY_OBTAINED_MARKS + " DOUBLE, "+
                     KEY_TEACHER_ID + " INTEGER);";
             db.execSQL(sqlCode);
@@ -82,14 +82,80 @@ public class StudentMarksTable {
         this.ourHelper.close();
     }
 
-//    public long createEntry(int id, double marks,int rubricCloID, int lab){
-//        ContentValues cv = new ContentValues();
-//        cv.put(KEY_ROWID,id);
-//        cv.put(KEY_MARKS,marks);
-//        cv.put(KEY_LAB_ID,lab);
-//        cv.put(KEY_RUBRIC_CLO_ID,rubricCloID);
-//        return ourDatabase.insert(DATABASE_TABLE,null,cv);
-//    }
+    public int checkStudentEntry(int studentId, int teacherId, int courseId, int weekId, int questionId){
+        String [] colomns = new String []{KEY_ROWID,
+                KEY_STUDENT_ID,
+                KEY_WEEK_ID,
+                KEY_QUESTION_ID,
+                KEY_COURSE_ID,
+                KEY_TEACHER_ID};
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+
+        String result = "";
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iStdId = cursor.getColumnIndex(KEY_STUDENT_ID);
+        int iWeekId = cursor.getColumnIndex(KEY_WEEK_ID);
+        int iQstnId = cursor.getColumnIndex(KEY_QUESTION_ID);
+        int iCourseId = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeachId = cursor.getColumnIndex(KEY_TEACHER_ID);
+
+        int check = -1;
+
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            if(cursor.getInt(iStdId) == studentId &&
+                    cursor.getInt(iWeekId) == weekId &&
+                    cursor.getInt(iTeachId) == teacherId &&
+                    cursor.getInt(iCourseId) == courseId &&
+                    cursor.getInt(iWeekId) == weekId &&
+                    cursor.getInt(iQstnId) == questionId
+                    ) {
+                check = cursor.getInt(iRowID);
+                break;
+            }
+        }
+        cursor.close();
+
+
+        return check;
+    }
+
+
+
+    public long createEntry(int studentId, int teacherId, int courseId, int weekId, int questionId, double obtainedMarks){
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_STUDENT_ID,studentId);
+        cv.put(KEY_TEACHER_ID,teacherId);
+        cv.put(KEY_COURSE_ID,courseId);
+        cv.put(KEY_WEEK_ID,weekId);
+        cv.put(KEY_QUESTION_ID,questionId);
+        cv.put(KEY_OBTAINED_MARKS,obtainedMarks);
+        return ourDatabase.insert(DATABASE_TABLE,null,cv);
+    }
+
+
+    public void updateEntry(int rowId, double obtainedMarks){
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_OBTAINED_MARKS,obtainedMarks);
+        String[] args = new String[]{String.valueOf(rowId)};
+        ourDatabase.update(DATABASE_TABLE, cv, KEY_ROWID + "=?",args);
+    }
+
+    public void updateDatabase(ArrayList<Integer> studentId, int teacherId, int courseId,
+                               int weekId, int questionId, ArrayList<Double> obtainedMarks){
+        for (int i = 0; i < studentId.size(); i++){
+            int rowId = checkStudentEntry(Integer.parseInt(studentId.get(i).toString()),
+                    teacherId, courseId, weekId, questionId);
+            if(rowId > -1){
+                updateEntry(rowId, Double.parseDouble(obtainedMarks.get(i).toString()));
+            }
+            else {
+                createEntry(Integer.parseInt(studentId.get(i).toString()), teacherId, courseId,
+                        weekId, questionId, Double.parseDouble(obtainedMarks.get(i).toString()));
+            }
+        }
+    }
+
 //
 //    public String getData(){
 //        String [] colomns = new String []{KEY_ROWID,KEY_RUBRIC_CLO_ID,KEY_MARKS,KEY_LAB_ID};
@@ -112,27 +178,27 @@ public class StudentMarksTable {
 //        return result;
 //    }
 
-    public ArrayList<String> getQuestions(int labId){
-        String [] colomns = new String []{KEY_ROWID,KEY_LAB_ID};
-
-        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
-        int count = 1;
-
-        int iRowID = cursor.getColumnIndex(KEY_ROWID);
-        int iLab = cursor.getColumnIndex(KEY_LAB_ID);
-
-        ArrayList<String> values = new ArrayList<>();
-
-        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            if (cursor.getInt(iLab) == labId) {
-                String value = cursor.getInt(iRowID) + ",Question " + count;
-                values.add(value);
-                count++;
-            }
-        }
-
-        return values;
-    }
+//    public ArrayList<String> getQuestions(int labId){
+//        String [] colomns = new String []{KEY_ROWID,KEY_LAB_ID};
+//
+//        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+//        int count = 1;
+//
+//        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+//        int iLab = cursor.getColumnIndex(KEY_LAB_ID);
+//
+//        ArrayList<String> values = new ArrayList<>();
+//
+//        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+//            if (cursor.getInt(iLab) == labId) {
+//                String value = cursor.getInt(iRowID) + ",Question " + count;
+//                values.add(value);
+//                count++;
+//            }
+//        }
+//
+//        return values;
+//    }
 
     public int getCount(){
         String [] colomns = new String []{KEY_ROWID};

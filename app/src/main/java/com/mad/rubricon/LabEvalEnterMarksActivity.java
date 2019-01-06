@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,10 +15,13 @@ import java.util.ArrayList;
 public class LabEvalEnterMarksActivity extends AppCompatActivity {
     private  int courseId;
     private String weekId;
+    private String teacherId;
     private String questionId;
 
     TextView courseTitleView;
+    ListView coursesListView;
     TextView weekQuestionView;
+    ArrayList<CourseMarks> courseMarks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,7 @@ public class LabEvalEnterMarksActivity extends AppCompatActivity {
 
         courseId = getIntent().getIntExtra("CourseId", 0);
         weekId = getIntent().getStringExtra("CourseWeek");
+        teacherId = getIntent().getStringExtra("TeacherId");
         questionId = getIntent().getStringExtra("QuestionId");
 
         courseTitleView = (TextView) findViewById(R.id.textViewCourseTitle);
@@ -33,9 +39,9 @@ public class LabEvalEnterMarksActivity extends AppCompatActivity {
         courseTitleView.setText("Course Id: " + courseId);
         weekQuestionView.setText("Week: " + weekId + ", Question: " + questionId);
 
-        ArrayList<CourseMarks> courseMarks = getMarksList();
+        courseMarks = getMarksList();
         EvaluationCustomAdapter adapter = new EvaluationCustomAdapter(courseMarks, this);
-        ListView coursesListView = (ListView) findViewById(R.id.listViewStudents);
+        coursesListView = (ListView) findViewById(R.id.listViewStudents);
         coursesListView.setAdapter(adapter);
         Toolbar toolbar = findViewById(R.id.toolbar_lab_marks_enter_activity);
         setSupportActionBar(toolbar);
@@ -54,6 +60,25 @@ public class LabEvalEnterMarksActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onSaveClick(View view){
+        ArrayList<Integer> stdId = new ArrayList<>();
+        ArrayList<Double> stdMarks = new ArrayList<>();
+
+        for(int i = 0; i < courseMarks.size(); i++){
+            View item = coursesListView.getChildAt(i);
+            TextView rollNo = (TextView) item.findViewById(R.id.txtViewRegistrationNumber);
+            EditText marks = (EditText) item.findViewById(R.id.editTextMarks);
+            stdId.add(courseMarks.get(i).getId());
+            stdMarks.add(Double.parseDouble(marks.getText().toString()));
+        }
+
+        StudentMarksTable table = new StudentMarksTable(this);
+        table.open();
+        table.updateDatabase(stdId, Integer.parseInt(teacherId), courseId, Integer.parseInt(weekId), Integer.parseInt(questionId), stdMarks);
+    }
+
+
 
     public ArrayList<CourseMarks> getMarksList(){
         ArrayList<CourseMarks> marksLst = new ArrayList<CourseMarks>();
