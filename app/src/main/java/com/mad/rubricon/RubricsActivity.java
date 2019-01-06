@@ -36,6 +36,12 @@ public class RubricsActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         rubrics.setAdapter(adapter);
+
+//        for(int i=0; i<rubrics.getCount(); i++){
+//            View itemView = (View) rubrics.getChildAt(i);
+//            TextView item = itemView.findViewById(android.R.id.text1);
+//            item.setTextColor(Color.BLACK);
+//        }
     }
 
     public void createRubric(View view){
@@ -55,25 +61,9 @@ public class RubricsActivity extends AppCompatActivity {
         final Spinner spinner = new Spinner(this);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
         spinner.setAdapter(spinnerArrayAdapter);
-        spinner.setSelection(0, true);
-        View v = spinner.getSelectedView();
-        ((TextView)v).setTextColor(Color.BLACK);
-        //Set the listener for when each option is clicked.
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                ((TextView) parent.getChildAt(0)).setTextSize(5);
-
-            }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
 
         builder.setView(spinner);
+        builder.setCancelable(false);
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override

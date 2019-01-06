@@ -1,10 +1,13 @@
 package com.mad.rubricon;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 
 public class Rubric {
     public static Rubric rubric = new Rubric();
+    int id;
     String courseID;
     String teacherID;
     String rubricTitle;
@@ -59,5 +62,20 @@ public class Rubric {
 
     public void setSection(String section) {
         this.section = section;
+    }
+
+    public void saveRubric(Context context){
+        RubricTable rubricTable = new RubricTable(context);
+        rubricTable.open();
+        this.id = rubricTable.getCount();
+        rubricTable.createEntry(id,courseID,rubricTitle,teacherID,section);
+
+        GradingLevelTable table = new GradingLevelTable(context);
+        table.open();
+        int id = table.getCount();
+        int i = 0;
+        for (GradingLevel level: gradingLevels) {
+            table.createEntry(id,level.title,level.rubricID,level.marks);
+        }
     }
 }

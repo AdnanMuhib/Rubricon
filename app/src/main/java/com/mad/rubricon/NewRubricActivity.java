@@ -52,9 +52,12 @@ public class NewRubricActivity extends AppCompatActivity {
             }
             marksList.add(marks);
         }
+        int i = 1;
         for (String marks:marksList){
-            Rubric.rubric.addGradingLevel(new GradingLevel("Level",Integer.parseInt(marks)));
+            Rubric.rubric.addGradingLevel(new GradingLevel("Level "+i,Integer.parseInt(marks)));
+            i++;
         }
+        Rubric.rubric.saveRubric(this);
 
         startActivity(new Intent(this,AddCloActivity.class));
     }
