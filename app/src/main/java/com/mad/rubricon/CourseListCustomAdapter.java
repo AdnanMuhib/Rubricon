@@ -17,7 +17,7 @@ public class CourseListCustomAdapter extends BaseAdapter implements ListAdapter 
     private ArrayList<Course> list = new ArrayList<Course>();
     private Context context;
 
-    public CourseListCustomAdapter(ArrayList<Course> list, Context c){
+    public CourseListCustomAdapter(ArrayList<Course> list, LabEvaluationActivity c){
         this.list = list;
         this.context = c;
     }
@@ -52,17 +52,19 @@ public class CourseListCustomAdapter extends BaseAdapter implements ListAdapter 
         courseIdText.setText(list.get(position).getCourseId());
         courseTitleText.setText(list.get(position).getCourseTitle());
         courseTitleText.setTag(list.get(position).id);
-        courseTitleText.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public  void onClick(View v){
-                Intent intent = new Intent(context, LabEvalSelectWeekActivity.class);
-                String crsId = v.getTag().toString();
-                intent.putExtra("crsId", crsId);
-                Log.i("DebugLog",crsId);
-                context.startActivity(intent);
-                //notifyDataSetChanged();
-            }
-        });
+//        courseTitleText.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public  void onClick(View v){
+//
+//                ((LabEvaluationActivity)context).onCourseClick(new Course());
+//                Intent intent = new Intent(context, LabEvalSelectWeekActivity.class);
+//                String crsId = v.getTag().toString();
+//                intent.putExtra("crsId", crsId);
+//                Log.i("DebugLog",crsId);
+//                context.startActivity(intent);
+//                //notifyDataSetChanged();
+//            }
+//        });
         return view;
     }
 }

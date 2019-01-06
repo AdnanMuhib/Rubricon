@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mad.rubricon">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,16 +23,17 @@
         <activity android:name=".CloSubCategoryActivity"
             android:theme="@style/AppThemeRubric"/>
         <activity android:name=".DescriptionsActivity" />
-        <activity android:name=".LabActivity"></activity>
+        <activity android:name=".LabActivity" />
         <activity android:name=".LabEvaluationActivity" />
         <activity android:name=".LabEvalSelectWeekActivity" />
+        <activity android:name=".LabEvalEnterMarksActivity" />
+        <activity android:name=".LabEvalSelectQuestionActivity" />
         <activity android:name=".RubricsActivity"
             android:theme="@style/AppThemeRubric"/>
-
-        <activity android:name=".LabEvalSelectQuestionActivity"></activity>
-            <activity
-                android:name=".DrawerActivity"
-                android:label="@string/title_activity_drawer"></activity>
-        </application>
-
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer" />
+        <activity android:name=".LabReportActivity" />
+        <activity android:name=".LabReportViewActivity"></activity>
+    </application>
 </manifest>

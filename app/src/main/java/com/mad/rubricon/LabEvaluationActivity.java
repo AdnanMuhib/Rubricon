@@ -6,27 +6,53 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class LabEvaluationActivity extends AppCompatActivity {
-
+    String requiredOperation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_evaluation);
         ArrayList<Course> courses = getCoursesList();
         CourseListCustomAdapter adapter = new CourseListCustomAdapter(courses, this);
+
+        requiredOperation = getIntent().getStringExtra("ActivityName");
+
         ListView coursesListView = (ListView) findViewById(R.id.mCourseList);
+        coursesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (requiredOperation.equals("LabEvaluation"))
+                {
+                    Intent intent = new Intent(LabEvaluationActivity.this, LabEvalSelectWeekActivity.class);
+                    intent.putExtra("crsId","1");
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(LabEvaluationActivity.this, LabReportActivity.class);
+                    intent.putExtra("crsId","1");
+                    startActivity(intent);
+                }
+
+            }
+        });
         coursesListView.setAdapter(adapter);
         Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
+        if(requiredOperation.equals("LabEvaluation"))
         actionbar.setTitle("Lab Evaluation");
+        else
+            actionbar.setTitle("Lab Reporting");
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+
     }
 
     @Override
@@ -54,5 +80,7 @@ public class LabEvaluationActivity extends AppCompatActivity {
 
         return crses;
     }
+     public void onCourseClick(Course crsItem){
 
+     }
 }
