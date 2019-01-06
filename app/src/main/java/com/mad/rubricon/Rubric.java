@@ -65,17 +65,21 @@ public class Rubric {
     }
 
     public void saveRubric(Context context){
+        // Saving the rubric to DB...
         RubricTable rubricTable = new RubricTable(context);
         rubricTable.open();
         this.id = rubricTable.getCount();
         rubricTable.createEntry(id,courseID,rubricTitle,teacherID,section);
+        rubricTable.close();
 
+        // Saving grading level of the rubric to the DB...
         GradingLevelTable table = new GradingLevelTable(context);
         table.open();
         int id = table.getCount();
-        int i = 0;
         for (GradingLevel level: gradingLevels) {
+            level.setRubricID(id);
             table.createEntry(id,level.title,level.rubricID,level.marks);
         }
+        table.close();
     }
 }

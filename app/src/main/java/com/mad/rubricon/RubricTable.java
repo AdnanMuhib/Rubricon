@@ -45,7 +45,7 @@ public class RubricTable {
             */
             String sqlCode = "CREATE TABLE " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
-                    KEY_COURSE_ID + " INTEGER, " +
+                    KEY_COURSE_ID + " TEXT, " +
                     KEY_TEACHER_ID + " TEXT, " +
                     KEY_SECTION + " TEXT, " +
                     KEY_RUBRIC_TITLE_ID + " TEXT);";
@@ -78,7 +78,7 @@ public class RubricTable {
         this.ourHelper.close();
     }
 
-    public long createEntry(int id, int couseID,String rubricTitle, String teacher_id, String section){
+    public long createEntry(int id, String couseID,String rubricTitle, String teacher_id, String section){
         ContentValues cv = new ContentValues();
         cv.put(KEY_ROWID,id);
         cv.put(KEY_COURSE_ID,couseID);

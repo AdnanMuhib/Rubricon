@@ -12,17 +12,60 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DescriptionsActivity extends AppCompatActivity {
 
     ListView desList;
+    EditText title;
+    EditText description;
+    int level;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descriptions);
 
+        title = findViewById(R.id.etCriteriaTitle);
+        description = findViewById(R.id.etDescription);
+
         desList = findViewById(R.id.subCategoryList);
-        descriptionAdapter adapter = new descriptionAdapter(this,R.layout.category_item, 3);
+        level = Rubric.rubric.gradingLevels.size();
+        descriptionAdapter adapter = new descriptionAdapter(this,R.layout.category_item, level);
         desList.setAdapter(adapter);
+    }
+
+    public void saveCriteria(View view){
+        String criteriaTitle = title.getText().toString();
+        String des = description.getText().toString();
+
+        if (criteriaTitle.equals("")){
+            title.setError("Title not entered!");
+            return;
+        }
+        else if (des.equals("")){
+            description.setError("Description not entered");
+            return;
+        }
+        else {
+            List<String> descList = new ArrayList<>();
+            for (int i =0; i<level; i++){
+                View item = desList.getChildAt(i);
+                EditText etDesc = item.findViewById(R.id.etLevelDescription);
+                String desc = etDesc.getText().toString().trim();
+                if(desc.equals("")) {
+                    etDesc.setError("Level Description not entered!");
+                    return;
+                }
+                descList.add(desc);
+            }
+            int i = 1;
+            for (String marks:descList){
+                Rubric.rubric.addGradingLevel(new GradingLevel("Level "+i,Integer.parseInt(marks)));
+                i++;
+            }
+        }
     }
 
     public class descriptionAdapter extends ArrayAdapter {
@@ -50,15 +93,12 @@ public class DescriptionsActivity extends AppCompatActivity {
             if (null == view) {
                 LayoutInflater layoutInflater = (LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = layoutInflater.inflate(R.layout.category_item, null);
+                view = layoutInflater.inflate(R.layout.level_item_description, null);
             }
 
-            TextView level_ = (TextView) view.findViewById(R.id.levelDes);
-            EditText iconview = (EditText) view.findViewById(R.id.Des);
+            TextView level = (TextView) view.findViewById(R.id.levelNumber);
 
-            level_.setText("Level " + (position+1));
-
-
+            level.setText("Level " + (position+1));
             return view;
         }
 
