@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LabEvalSelectWeekActivity extends AppCompatActivity {
-    private  int courseId;
+    private  int courseId = 2;
+    private  int teacherId = 2;
     String requiredOperation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,24 +28,34 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
         courseId = Integer.parseInt(getIntent().getStringExtra("crsId"));
         requiredOperation = getIntent().getStringExtra("requiredOperation");
         // find the Weekly Labs using Lab Course Id from Data Base
-        ArrayList<String> courseWeeksList = GetCourseWeeks();
-        courseWeeksList.add("Course Id" + courseId);
-        ListView mCourseListView  = (ListView) findViewById(R.id.listViewCourseWeeks);
+        final ArrayList<String> courseWeeksList = GetCourseWeeks();
+//        courseWeeksList.add("Course Id" + courseId);
 
-        // when a week is clicked from the list
-        mCourseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String value = (String)parent.getItemAtPosition(position);
-                Log.i("DebugLog", value);
 
-                // code to go to next activity where Questions will be Displayed for Evaluation
-                GoToQuestionsActivity(value);
+        if(courseWeeksList.size()>0){
+            ArrayList<String> labTitles = new ArrayList<>();
+            for(int i=0;i<courseWeeksList.size();i++){
+                String[] split = courseWeeksList.get(i).split(",");
+                labTitles.add(split[1]);
             }
-        });
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.single_item_list, courseWeeksList);
+            ListView mCourseListView  = (ListView) findViewById(R.id.listViewCourseWeeks);
 
-        mCourseListView.setAdapter(adapter);
+            // when a week is clicked from the list
+            mCourseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    String value = (String)parent.getItemAtPosition(position);
+                    Log.i("DebugLog", value);
+
+                    // code to go to next activity where Questions will be Displayed for Evaluation
+                    GoToQuestionsActivity(courseWeeksList.get(position));
+                }
+            });
+            ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.single_item_list, labTitles);
+
+            mCourseListView.setAdapter(adapter);
+
+        }
 
         Toolbar toolbar = findViewById(R.id.toolbar_lab_week_list);
         setSupportActionBar(toolbar);
@@ -67,17 +78,22 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
     public ArrayList<String> GetCourseWeeks(){
 
         // Get a List of Lab Weeks using course Id from Database
-            // code goes here
+
+        LabTable table = new LabTable(this);
+        table.open();
+        ArrayList<String> labs = table.getLabId(String.valueOf(teacherId),String.valueOf(courseId));
+        table.close();
 
         // Dummy Data for Testing
         ArrayList<String> lst = new ArrayList<String>();
+
         lst.add("Lab Week 1");
         lst.add("Lab Week 2");
         lst.add("Lab Week 3");
         lst.add("Lab Week 4");
         lst.add("Lab Week 5");
 
-        return  lst;
+        return  labs;
     }
 
     public void createLab(View view){
@@ -87,8 +103,10 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
     public void GoToQuestionsActivity(String val){
         if(!requiredOperation.equals("LabCreation")){
             Intent intent = new Intent(this, LabEvalSelectQuestionActivity.class);
-            intent.putExtra("CourseWeek", val);
+            String[] split = val.split(",");
+            intent.putExtra("CourseWeek", split[1]);
             intent.putExtra("CourseId", courseId);
+            intent.putExtra("TeacherId", teacherId);
 
             Log.i("DebugLog", "Selected Course week is:  "+ val);
             startActivity(intent);
