@@ -120,7 +120,7 @@ public class LabTable {
     }
 
     public ArrayList<String> getLabId(String teacher, String courseId){
-        String [] colomns = new String []{KEY_ROWID, KEY_LAB_TITLE};
+        String [] colomns = new String []{KEY_ROWID, KEY_LAB_TITLE,KEY_TEACHER_ID,KEY_COURSE_ID};
 
         Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,KEY_ROWID);
 

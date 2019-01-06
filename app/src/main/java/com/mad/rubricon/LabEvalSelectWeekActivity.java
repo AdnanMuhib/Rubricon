@@ -21,6 +21,8 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
     private  int courseId = 2;
     private  int teacherId = 2;
     String requiredOperation;
+    ArrayList<String> courseWeeksList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,7 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
         courseId = Integer.parseInt(getIntent().getStringExtra("crsId"));
         requiredOperation = getIntent().getStringExtra("requiredOperation");
         // find the Weekly Labs using Lab Course Id from Data Base
-        final ArrayList<String> courseWeeksList = GetCourseWeeks();
+        courseWeeksList = GetCourseWeeks();
 //        courseWeeksList.add("Course Id" + courseId);
 
 
@@ -65,6 +67,25 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        courseWeeksList = GetCourseWeeks();
+        if(courseWeeksList.size()>0){
+            ArrayList<String> labTitles = new ArrayList<>();
+            for(int i=0;i<courseWeeksList.size();i++){
+                String[] split = courseWeeksList.get(i).split(",");
+                labTitles.add(split[1]);
+            }
+            ListView mCourseListView  = (ListView) findViewById(R.id.listViewCourseWeeks);
+            ArrayAdapter adapter = new ArrayAdapter<String>(this,
+                    R.layout.single_item_list, labTitles);
+            mCourseListView.setAdapter(adapter);
+
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -81,7 +102,7 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
 
         LabTable table = new LabTable(this);
         table.open();
-        ArrayList<String> labs = table.getLabId(String.valueOf(teacherId),String.valueOf(courseId));
+        ArrayList<String> labs = table.getLabId(String.valueOf(teacherId),String.valueOf(2));
         table.close();
 
         // Dummy Data for Testing
@@ -105,6 +126,7 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LabEvalSelectQuestionActivity.class);
             String[] split = val.split(",");
             intent.putExtra("CourseWeek", split[1]);
+            intent.putExtra("CourseWeekId", split[0]);
             intent.putExtra("CourseId", courseId);
             intent.putExtra("TeacherId", teacherId);
 
