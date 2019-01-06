@@ -2,9 +2,12 @@ package com.mad.rubricon;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -34,6 +37,23 @@ public class DescriptionsActivity extends AppCompatActivity {
         level = Rubric.rubric.gradingLevels.size();
         descriptionAdapter adapter = new descriptionAdapter(this,R.layout.category_item, level);
         desList.setAdapter(adapter);
+
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Back");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void saveCriteria(View view){
