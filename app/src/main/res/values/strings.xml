@@ -1,7 +1,49 @@
 <resources>
     <string name="app_name">Rubricon</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_home">Home</string>
+
     <string-array name="clos">
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string-array name="clo">
+        <item>--Select CLO--</item>
+        <item>CLO 1</item>
+        <item>CLO 2</item>
+        <item>CLO 3</item>
+        <item>CLO 4</item>
+        <item>CLO 5</item>
+    </string-array>
+    <string-array name="rubric">
+        <item>--Select Rubric--</item>
+        <item>Rubric 1</item>
+        <item>Rubric 2</item>
+        <item>Rubric 3</item>
+        <item>Rubric 4</item>
+        <item>Rubric 5</item>
+    </string-array>
+    <string-array name="criteria">
+        <item>--Select Report Criteria--</item>
+        <item>Above Average</item>
+        <item>Good</item>
+        <item>Above Good</item>
+        <item>Excellent</item>
+        <item>All</item>
+    </string-array>
+    <string-array name="type">
+        <item>--Select Report Type--</item>
+        <item>CSV</item>
+        <item>PDF</item>
+        <item>TSV</item>
+    </string-array>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
 </resources>

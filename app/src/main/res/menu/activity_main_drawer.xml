@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_rubric"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Rubric" />
+        <item
+            android:id="@+id/nav_lab_create"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Labs" />
+        <item
+            android:id="@+id/nav_lab_eval"
+            android:icon = "@drawable/ic_spellcheck"
+            android:title="Lab Evaluation" />
+        <item
+            android:id="@+id/nav_lab_report"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Lab Report" />
+
+
+    </group>
+</menu>
