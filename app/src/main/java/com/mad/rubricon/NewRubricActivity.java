@@ -29,7 +29,7 @@ public class NewRubricActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_rubric);
 
         levels = findViewById(R.id.levelList);
-        level = Rubric.rubric.gradingLevels.size();
+        level = getLevel(getIntent().getStringExtra("levels"));
         LevelAdapter levelAdapter = new LevelAdapter(this,R.layout.level_item_marks, level);
 
         levels.setAdapter(levelAdapter);
@@ -40,6 +40,22 @@ public class NewRubricActivity extends AppCompatActivity {
         actionbar.setTitle("Rubrics");
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+    }
+
+    public int getLevel(String level){
+        switch (level){
+            case "one":
+                return 1;
+            case "two":
+                return 2;
+            case "three":
+                return 3;
+            case "four":
+                return 4;
+            case "five":
+                return 5;
+        }
+        return 0;
     }
 
     @Override

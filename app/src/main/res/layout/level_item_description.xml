@@ -34,7 +34,6 @@
             android:layout_weight="0.3"
             android:ems="4"
             android:hint="Enter Level Description"
-            android:inputType="number"
             android:textColor="@android:color/black" />
     </TableRow>
 

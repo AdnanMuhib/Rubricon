@@ -68,7 +68,6 @@ public class QuestionTable {
     public QuestionTable open() throws SQLException {
         this.ourHelper = new DBHelper(this.ourContext);
         this.ourDatabase = this.ourHelper.getWritableDatabase();
-        //ourHelper.onUpgrade(ourDatabase,1,DATABASE_VERSION);
         return this;
     }
 
