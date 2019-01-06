@@ -60,6 +60,11 @@ public class DescriptionsActivity extends AppCompatActivity {
                 }
                 descList.add(desc);
             }
+
+            Criteria.criteria.setDescription(des);
+            Criteria.criteria.setTitle(criteriaTitle);
+
+
             int i = 1;
             for (String marks:descList){
                 Rubric.rubric.addGradingLevel(new GradingLevel("Level "+i,Integer.parseInt(marks)));

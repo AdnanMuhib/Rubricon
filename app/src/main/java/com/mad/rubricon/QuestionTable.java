@@ -106,6 +106,30 @@ public class QuestionTable {
         return result;
     }
 
+    public ArrayList<String> getQuestions(int labId){
+        String [] colomns = new String []{KEY_ROWID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+        int count = 1;
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iRubricCloID = cursor.getColumnIndex(KEY_RUBRIC_CLO_ID);
+        int iMarks = cursor.getColumnIndex(KEY_MARKS);
+        int iLab = cursor.getColumnIndex(KEY_LAB_ID);
+
+        ArrayList<String> values = new ArrayList<>();
+
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            if (cursor.getInt(iLab) == labId) {
+                String value = cursor.getInt(iRowID) + ",Question " + count;
+                values.add(value);
+                count++;
+            }
+        }
+
+        return values;
+    }
+
     public int getCount(){
         String [] colomns = new String []{KEY_ROWID};
 

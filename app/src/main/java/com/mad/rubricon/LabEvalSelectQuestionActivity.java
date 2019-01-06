@@ -59,6 +59,7 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.single_item_list, questionsList);
 
         questionsListView.setAdapter(adapter);
+
         Toolbar toolbar = findViewById(R.id.toolbar_lab_question_activity);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();

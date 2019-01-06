@@ -126,14 +126,18 @@ public class LabTable {
 
         int iRowID = cursor.getColumnIndex(KEY_ROWID);
         int iTitle = cursor.getColumnIndex(KEY_LAB_TITLE);
+        int iCourseId = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeacherId = cursor.getColumnIndex(KEY_TEACHER_ID);
 
         ArrayList<String> values = new ArrayList<>();
 
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            String value = cursor.getInt(iRowID) + "," + cursor.getString(iTitle);
-            values.add(value);
+            if (cursor.getString(iTeacherId).equals(teacher) && cursor.getString(iCourseId).equals(courseId)) {
+                String value = cursor.getInt(iRowID) + "," + cursor.getString(iTitle);
+                values.add(value);
+            }
         }
-        
+
         return values;
     }
 
