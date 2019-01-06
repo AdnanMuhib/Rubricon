@@ -110,13 +110,31 @@ public class LabTable {
         int iSection = cursor.getColumnIndex(KEY_SECTION);
 
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            result += cursor.getString(iRowID) +',' +cursor.getString(iTitle)+ "," + cursor.getString(iMarksWeight)+',' +
+            result += cursor.getInt(iRowID) +',' +cursor.getString(iTitle)+ "," + cursor.getString(iMarksWeight)+',' +
                     cursor.getString(iMarks) + ',' +cursor.getString(iCourseId) + ',' +cursor.getString(iTeacherId) +
                     ',' +cursor.getString(iSection) + ":";
         }
         cursor.close();
 
         return result;
+    }
+
+    public ArrayList<String> getLabId(String teacher, String courseId){
+        String [] colomns = new String []{KEY_ROWID, KEY_LAB_TITLE};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,KEY_ROWID);
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iTitle = cursor.getColumnIndex(KEY_LAB_TITLE);
+
+        ArrayList<String> values = new ArrayList<>();
+
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            String value = cursor.getInt(iRowID) + "," + cursor.getString(iTitle);
+            values.add(value);
+        }
+        
+        return values;
     }
 
     public int getCount(){
