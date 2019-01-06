@@ -1,6 +1,7 @@
 package com.mad.rubricon;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -9,10 +10,23 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
@@ -39,7 +53,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
-public class LabReportViewActivity extends Activity implements OnPageChangeListener,OnLoadCompleteListener {
+public class LabReportViewActivity extends AppCompatActivity implements OnPageChangeListener,OnLoadCompleteListener {
     private static final String TAG = LabReportViewActivity.class.getSimpleName();
     public static final String SAMPLE_FILE = "report1.pdf";
     PDFView pdfView;
@@ -84,7 +98,25 @@ public class LabReportViewActivity extends Activity implements OnPageChangeListe
         pdfView= (PDFView)findViewById(R.id.pdfView);
         //displayFromAsset(SAMPLE_FILE);
         displayFromFile(file_path);
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_report_gen_activity);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Lab Evaluation");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
     private void displayFromFile(String filePath){
         pdfView.fromFile(new File(filePath))
                 .defaultPage(pageNumber)
@@ -277,7 +309,7 @@ public class LabReportViewActivity extends Activity implements OnPageChangeListe
                 cell.addElement(ftable);
                 table.addCell(cell);
                 doc.add(table);
-                Toast.makeText(getApplicationContext(), "created PDF", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Report Generated successfully!", Toast.LENGTH_LONG).show();
             } catch (DocumentException de) {
                 Log.e("PDFCreator", "DocumentException:" + de);
             } finally {

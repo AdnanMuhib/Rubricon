@@ -14,13 +14,13 @@ public class LabReportActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_report);
+        CourseId = getIntent().getStringExtra("crsId");
         Toolbar toolbar = findViewById(R.id.toolbar_lab_report_activity);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle("Lab Report");
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
-        CourseId = getIntent().getStringExtra("crsId");
     }
 
     public  void OnGenerateReportClicked(View view){
