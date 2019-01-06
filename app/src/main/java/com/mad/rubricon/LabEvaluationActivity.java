@@ -32,9 +32,16 @@ public class LabEvaluationActivity extends AppCompatActivity {
                 if (requiredOperation.equals("LabEvaluation"))
                 {
                     Intent intent = new Intent(LabEvaluationActivity.this, LabEvalSelectWeekActivity.class);
+                    intent.putExtra("requiredOperation", "LabEvaluation");
                     intent.putExtra("crsId","1");
                     startActivity(intent);
-                } else {
+                } else if(requiredOperation.equals("LabCreation")){
+                    Intent intent = new Intent(LabEvaluationActivity.this, LabEvalSelectWeekActivity.class);
+                    intent.putExtra("requiredOperation", "LabCreation");
+                    intent.putExtra("crsId","1");
+                    startActivity(intent);
+
+                } else{
                     Intent intent = new Intent(LabEvaluationActivity.this, LabReportActivity.class);
                     intent.putExtra("crsId","1");
                     startActivity(intent);

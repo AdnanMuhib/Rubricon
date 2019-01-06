@@ -35,6 +35,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_lab_week_list">
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/newRubric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:onClick="createLab"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/colorPrimary" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

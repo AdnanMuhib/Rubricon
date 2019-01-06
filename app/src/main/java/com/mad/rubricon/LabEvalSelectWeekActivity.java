@@ -19,12 +19,13 @@ import java.util.List;
 
 public class LabEvalSelectWeekActivity extends AppCompatActivity {
     private  int courseId;
+    String requiredOperation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_eval_select_week);
         courseId = Integer.parseInt(getIntent().getStringExtra("crsId"));
-
+        requiredOperation = getIntent().getStringExtra("requiredOperation");
         // find the Weekly Labs using Lab Course Id from Data Base
         ArrayList<String> courseWeeksList = GetCourseWeeks();
         courseWeeksList.add("Course Id" + courseId);
@@ -78,13 +79,20 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
 
         return  lst;
     }
-    public void GoToQuestionsActivity(String val){
-        Intent intent = new Intent(this, LabEvalSelectQuestionActivity.class);
-        intent.putExtra("CourseWeek", val);
-        intent.putExtra("CourseId", courseId);
 
-        Log.i("DebugLog", "Selected Course week is:  "+ val);
+    public void createLab(View view){
+        Intent intent = new Intent(LabEvalSelectWeekActivity.this, LabActivity.class);
         startActivity(intent);
+    }
+    public void GoToQuestionsActivity(String val){
+        if(!requiredOperation.equals("LabCreation")){
+            Intent intent = new Intent(this, LabEvalSelectQuestionActivity.class);
+            intent.putExtra("CourseWeek", val);
+            intent.putExtra("CourseId", courseId);
+
+            Log.i("DebugLog", "Selected Course week is:  "+ val);
+            startActivity(intent);
+        }
     }
 
 
