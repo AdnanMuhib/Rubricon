@@ -15,6 +15,7 @@ public class CloSubCategoryActivity extends AppCompatActivity {
 
     Spinner spinner;
     ListView subCategory;
+
     String [] values = {"Sub-Category 1","Sub-Category 2"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,13 @@ public class CloSubCategoryActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        subCategory.setAdapter(adapter);
 
         spinner = findViewById(R.id.spCLOID);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<>(this,
                 R.layout.support_simple_spinner_dropdown_item,getResources().getStringArray(R.array.clos));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
-
 
         Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
         setSupportActionBar(toolbar);

@@ -23,8 +23,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        QuestionTable table = new QuestionTable(this);
-        table.create();
+        QuestionTable questionTable = new QuestionTable(this);
+        questionTable.create();
+        questionTable.close();
+        GradingLevelTable grade_table = new GradingLevelTable(this);
+        grade_table.create();
+        grade_table.close();
+        LabTable lab_table = new LabTable(this);
+        lab_table.create();
+        lab_table.close();
+        QuestionTable question_table = new QuestionTable(this);
+        question_table.create();
+        question_table.close();
+        RubricTable rubricTable = new RubricTable(this);
+        rubricTable.create();
+        rubricTable.close();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
@@ -59,13 +72,6 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-        GradingLevelTable grade_table = new GradingLevelTable(this);
-        grade_table.create();
-
-        LabTable lab_table = new LabTable(this);
-        lab_table.create();
-        QuestionTable question_table = new QuestionTable(this);
-        question_table.create();
 
         StudentMarksTable marksTable = new StudentMarksTable(this);
         marksTable.create();

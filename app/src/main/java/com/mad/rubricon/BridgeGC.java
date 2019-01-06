@@ -6,7 +6,7 @@ public class BridgeGC {
     String description;
 
 
-    public BridgeGC(int gradingLevelID, int criteriaID, String description) {
+    public BridgeGC(int gradingLevelID, String description) {
         this.gradingLevelID = gradingLevelID;
         this.criteriaID = criteriaID;
         this.description = description;

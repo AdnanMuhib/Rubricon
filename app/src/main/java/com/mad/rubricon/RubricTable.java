@@ -52,6 +52,22 @@ public class RubricTable {
             db.execSQL(sqlCode);
         }
 
+        public void create(SQLiteDatabase db) {
+            /*
+
+            CREATE TABLE AccountsTable(_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    person_name TEXT NOT NULL, _cell TEXT NOT NULL)
+
+            */
+            String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
+                    KEY_ROWID + " INTEGER PRIMARY KEY, " +
+                    KEY_COURSE_ID + " TEXT, " +
+                    KEY_TEACHER_ID + " TEXT, " +
+                    KEY_SECTION + " TEXT, " +
+                    KEY_RUBRIC_TITLE_ID + " TEXT);";
+            db.execSQL(sqlCode);
+        }
+
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
@@ -68,10 +84,7 @@ public class RubricTable {
     public void create(){
         this.ourHelper = new DBHelper(this.ourContext);
         this.ourDatabase = this.ourHelper.getWritableDatabase();
-        this.delete();
-        this.ourDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
-        //this.close();
-        ourHelper.onCreate(ourDatabase);
+        ourHelper.create(ourDatabase);
     }
 
     public void close(){

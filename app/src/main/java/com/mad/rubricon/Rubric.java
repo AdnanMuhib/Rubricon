@@ -77,8 +77,10 @@ public class Rubric {
         table.open();
         int id = table.getCount();
         for (GradingLevel level: gradingLevels) {
-            level.setRubricID(id);
-            table.createEntry(id,level.title,level.rubricID,level.marks);
+            level.setRubricID(this.id);
+            level.id = id;
+            table.createEntry(level.id,level.title,level.rubricID,level.marks);
+            id++;
         }
         table.close();
     }
