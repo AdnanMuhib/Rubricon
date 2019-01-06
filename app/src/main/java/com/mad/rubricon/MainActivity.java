@@ -59,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+        GradingLevelTable grade_table = new GradingLevelTable(this);
+        grade_table.create();
+
+        LabTable lab_table = new LabTable(this);
+        lab_table.create();
+        QuestionTable question_table = new QuestionTable(this);
+        question_table.create();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();

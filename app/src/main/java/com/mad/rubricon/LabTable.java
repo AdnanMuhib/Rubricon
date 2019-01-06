@@ -56,6 +56,17 @@ public class LabTable {
             db.execSQL(sqlCode);
         }
 
+        public void create(SQLiteDatabase db){
+            String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
+                    KEY_ROWID + " INTEGER PRIMARY KEY, " +
+                    KEY_LAB_TITLE + " TEXT, "+
+                    KEY_COURSE_ID + " TEXT, "+
+                    KEY_SECTION + " TEXT, "+
+                    KEY_TEACHER_ID + " TEXT, "+
+                    KEY_MARKS_WEIGHT + " DOUBLE, " +
+                    KEY_MARKS + " DOUBLE);";
+            db.execSQL(sqlCode);
+        }
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
@@ -72,10 +83,7 @@ public class LabTable {
     public void create(){
         this.ourHelper = new DBHelper(this.ourContext);
         this.ourDatabase = this.ourHelper.getWritableDatabase();
-        this.delete();
-        this.ourDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
-        //this.close();
-        ourHelper.onCreate(ourDatabase);
+        ourHelper.create(ourDatabase);
     }
 
     public void close(){

@@ -3,10 +3,13 @@ package com.mad.rubricon;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -146,6 +149,23 @@ public class LabActivity extends AppCompatActivity {
 
             }
         });
+
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Labs");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public class LabAdapter extends ArrayAdapter {
@@ -215,7 +235,7 @@ public class LabActivity extends AppCompatActivity {
             lab.setLabMarks(Double.parseDouble(marks));
             lab.setMarksWeight(Double.parseDouble(weightage));
             lab.save(this);
-
+            finish();
         }
     }
 }
