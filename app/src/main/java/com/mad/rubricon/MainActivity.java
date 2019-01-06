@@ -107,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void btnLabCreateClicked(){
-        Intent intent = new Intent(this, LabActivity.class);
+
+        Intent intent = new Intent(this, LabEvaluationActivity.class);
+        intent.putExtra("ActivityName","LabCreation");
         startActivity(intent);
     }
     public  void btnRubricClicked(){
