@@ -1,146 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LabReportActivity">
+    tools:context=".LabEvalSelectQuestionActivity">
 
-    <TextView
-        android:id="@+id/textViewReportType"
-        android:textColor="@color/textColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Select Report Type"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_lab_report_activity"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinnerReportType"
-        android:textColor="@color/textColor"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:entries="@array/clo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewReportType" />
 
-    <TextView
-        android:id="@+id/textViewRubricAttainment"
-        android:textColor="@color/textColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="Rubric Attainment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerReportType" />
-
-    <Spinner
-        android:id="@+id/spinnerSelectRubric"
-        android:textColor="@color/textColor"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:entries="@array/rubric"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRubricAttainment" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_lab_report_activity">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:textColor="@color/textColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="Report Criteria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerSelectRubric" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/spinnerReportCriteria"
-        android:layout_width="368dp"
-        android:textColor="@color/textColor"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:entries="@array/criteria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:textColor="@color/textColor"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="Output Format"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerReportCriteria" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ic_show_chart"
+                    android:padding="10dp"
 
-    <Spinner
-        android:id="@+id/spinnerReportFormat"
-        android:textColor="@color/textColor"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:entries="@array/type"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                    android:tint="@color/white" />
 
-    <Button
-        android:id="@+id/btnGenerateReport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:onClick="OnGenerateReportClicked"
-        android:text="Generate Report"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerReportFormat" />
-</android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textViewCourseTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="Course XYZ"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="20dp"/>
+
+                <!--<TextView-->
+                    <!--android:id="@+id/textViewCourseWeek"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginStart="8dp"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:layout_marginEnd="8dp"-->
+                    <!--android:layout_marginRight="8dp"-->
+                    <!--android:layout_marginBottom="20dp"-->
+                    <!--android:text="Evaluation: Lab Week 1"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/textViewCourseTitle" />-->
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/linearLayout1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:rotation="45"
+                android:src="@drawable/square" />
+
+            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/imageView1"
+                android:layout_marginTop="0dp"
+                tools:context=".LabReportActivity">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="282dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <!--android:layout_below="@+id/relativeLayout1"-->
+
+                    <ImageView
+                        android:id="@+id/img_report_clo"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_clos"
+                        android:tint="@color/white" />
+
+                    <Spinner
+                        android:id="@+id/spinnerReportType"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_toRightOf="@+id/img_report_clo"
+                        android:background="@color/editTextBG"
+                        android:entries="@array/clo"
+                        android:paddingLeft="12dp"
+                        android:textColor="@color/textColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.49"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout3"
+                    android:layout_width="282dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+                    <!--android:layout_below="@+id/relativeLayout1"-->
+
+                    <ImageView
+                        android:id="@+id/img_rubric"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_rubric"
+                        android:tint="@color/white" />
+
+                    <Spinner
+                        android:id="@+id/spinnerSelectRubric"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_alignParentTop="true"
+                        android:paddingLeft="12dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_toRightOf="@+id/img_rubric"
+                        android:background="@color/editTextBG"
+                        android:entries="@array/rubric"
+                        android:textColor="@color/textColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.49"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout4"
+                    android:layout_width="282dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+                    <!--android:layout_below="@+id/relativeLayout1"-->
+
+                    <ImageView
+                        android:id="@+id/img_report_criteria"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_report_criteria"
+                        android:tint="@color/white" />
+
+                    <Spinner
+                        android:id="@+id/spinnerReportCriteria"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:paddingLeft="12dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_toRightOf="@+id/img_report_criteria"
+                        android:background="@color/editTextBG"
+                        android:entries="@array/criteria"
+                        android:textColor="@color/textColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.49"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout5"
+                    android:layout_width="282dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    app:layout_constraintBottom_toTopOf="@+id/btnGenerateReport"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout4">
+                    <!--android:layout_below="@+id/relativeLayout1"-->
+
+                    <ImageView
+                        android:id="@+id/img_reprot_format"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_report_type"
+                        android:tint="@color/white" />
+
+                    <Spinner
+                        android:id="@+id/spinnerReportFormat"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_toRightOf="@+id/img_reprot_format"
+                        android:background="@color/editTextBG"
+                        android:paddingLeft="12dp"
+                        android:entries="@array/type"
+                        android:textColor="@color/textColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.49"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnGenerateReport"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorPrimary"
+                    android:onClick="OnGenerateReportClicked"
+
+                    android:text="Generate Report"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout5" />
+
+            </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    </android.support.constraint.ConstraintLayout>

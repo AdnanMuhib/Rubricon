@@ -18,21 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/relativeLayout1">
 
-
-
-        <!--<EditText-->
-        <!--android:id = "@+id/password"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignBottom="@+id/imgView_pass"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_toRightOf="@+id/imgView_pass"-->
-        <!--android:background="@color/editTextBG"-->
-        <!--android:hint="Enter Password"-->
-        <!--android:inputType="textPassword"-->
-        <!--android:paddingLeft="20dp"-->
-        <!--android:textSize="15sp" />-->
-
         <EditText
             android:id="@+id/editTextMarks"
             android:layout_width="140dp"
