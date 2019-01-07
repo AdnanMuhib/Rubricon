@@ -1,12 +1,10 @@
 package com.mad.rubricon;
 
 import android.content.Intent;
-import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -50,7 +48,7 @@ public class LabEvaluationActivity extends AppCompatActivity {
             }
         });
         coursesListView.setAdapter(adapter);
-        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        Toolbar toolbar = findViewById(R.id.toolbar_courses);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         if(requiredOperation.equals("LabEvaluation"))

@@ -55,7 +55,6 @@ import java.util.List;
 
 public class LabReportViewActivity extends AppCompatActivity implements OnPageChangeListener,OnLoadCompleteListener {
     private static final String TAG = LabReportViewActivity.class.getSimpleName();
-    public static final String SAMPLE_FILE = "report1.pdf";
     PDFView pdfView;
     Integer pageNumber = 0;
     String pdfFileName;
@@ -96,7 +95,6 @@ public class LabReportViewActivity extends AppCompatActivity implements OnPageCh
         TextView txtTitle = (TextView) findViewById(R.id.textView_header);
         txtTitle.setText("Course Title:" + courseId);
         pdfView= (PDFView)findViewById(R.id.pdfView);
-        //displayFromAsset(SAMPLE_FILE);
         displayFromFile(file_path);
         Toolbar toolbar = findViewById(R.id.toolbar_lab_report_gen_activity);
         setSupportActionBar(toolbar);
@@ -129,20 +127,7 @@ public class LabReportViewActivity extends AppCompatActivity implements OnPageCh
                 .scrollHandle(new DefaultScrollHandle(this))
                 .load();
     }
-    private void displayFromAsset(String assetFileName) {
-        pdfFileName = assetFileName;
 
-        pdfView.fromAsset(SAMPLE_FILE)
-                .defaultPage(pageNumber)
-                .enableSwipe(true)
-
-                .swipeHorizontal(true)
-                .onPageChange(this)
-                .enableAnnotationRendering(true)
-                .onLoad(this)
-                .scrollHandle(new DefaultScrollHandle(this))
-                .load();
-    }
     @Override
     public void loadComplete(int nbPages) {
         PdfDocument.Meta meta = pdfView.getDocumentMeta();

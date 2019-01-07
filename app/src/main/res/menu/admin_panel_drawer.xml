@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_create_course"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Course Create" />
+        <item
+            android:id="@+id/nav_modify_course"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Modify Course" />
+        <item
+            android:id="@+id/nav_clo_creation"
+            android:icon = "@drawable/ic_spellcheck"
+            android:title="CLO Creation" />
+        <item
+            android:id="@+id/nav_course_assign"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Assign Courses" />
+        <item
+            android:id="@+id/nav_teacher_manage"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Manage Teachers" />
+        <item
+            android:id="@+id/nav_admin_manage"
+            android:icon = "@drawable/ic_show_chart"
+            android:title="Manage Admins" />
+
+    </group>
+</menu>

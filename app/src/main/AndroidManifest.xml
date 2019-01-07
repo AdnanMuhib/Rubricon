@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mad.rubricon">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,29 +13,49 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".NewRubricActivity" />
-        <activity android:name=".AddCloActivity"
-            android:theme="@style/AppThemeRubric"/>
-        <activity android:name=".CloSubCategoryActivity"
-            android:theme="@style/AppThemeRubric"/>
+        <activity
+            android:name=".AddCloActivity"
+            android:theme="@style/AppThemeRubric" />
+        <activity
+            android:name=".CloSubCategoryActivity"
+            android:theme="@style/AppThemeRubric" />
         <activity android:name=".DescriptionsActivity" />
         <activity android:name=".LabActivity" />
         <activity android:name=".LabEvaluationActivity" />
         <activity android:name=".LabEvalSelectWeekActivity" />
         <activity android:name=".LabEvalEnterMarksActivity" />
         <activity android:name=".LabEvalSelectQuestionActivity" />
-        <activity android:name=".RubricsActivity"
-            android:theme="@style/AppThemeRubric"/>
+        <activity
+            android:name=".RubricsActivity"
+            android:theme="@style/AppThemeRubric" />
         <activity
             android:name=".DrawerActivity"
             android:label="@string/title_activity_drawer" />
         <activity android:name=".LabReportActivity" />
-        <activity android:name=".LabReportViewActivity"></activity>
+        <activity android:name=".LabReportViewActivity" />
+        <activity android:name=".StudentSignUp" />
+        <activity android:name=".TeacherSignUp" />
+        <activity android:name=".AdminSignUp" />
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>/>
+        </activity>
+
+        <activity android:name=".StudentPanel" />
+        <activity android:name=".TeacherCourseList" />
+        <activity android:name=".Courses" />
+        <activity android:name=".CourseCreation" />
+        <activity android:name=".CourseModification" />
+        <activity android:name=".Clo" />
+        <activity android:name=".AllocateCourses" />
+        <activity android:name=".CourseUpdate" />
+        <activity android:name=".CloCreation" />
+        <activity android:name=".StudentCourseList" />
+        <activity android:name=".StudentCourses"></activity>
     </application>
+
 </manifest>

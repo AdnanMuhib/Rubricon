@@ -7,17 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
 
-
-
-
-    <!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-        <!--xmlns:tools="http://schemas.android.com/tools"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--tools:context=".MainActivity">-->
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
@@ -30,129 +20,41 @@
             android:background="?attr/colorPrimary"
             android:theme="@style/AppTheme" />
 
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="100dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
 
-        <!--<Button-->
-            <!--android:id="@+id/btnCourseCreation"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:onClick="btnCourseCreationClicked"-->
-            <!--android:text="Course Creation"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent" />-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <!--<Button-->
-            <!--android:id="@+id/btnTeacherCreation"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="btnTeacherCreationClicked"-->
-            <!--android:text="Teacher Creation"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnCourseCreation" />-->
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <!--<Button-->
-            <!--android:id="@+id/btnStudentRegistration"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="btnStudentRegistrationClicked"-->
-            <!--android:text="Student Registration"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnTeacherCreation" />-->
+                </ListView>
 
-        <!--<Button-->
-            <!--android:id="@+id/btnCloCreation"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="btnCloCreationClicked"-->
-            <!--android:text="ClO's Creation"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnStudentRegistration" />-->
 
-        <!--<Button-->
-            <!--android:id="@+id/btnLabReporting"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="btnLabReportingClicked"-->
-            <!--android:text="Lab Reporting"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnLabEvaluation" />-->
+            </RelativeLayout>
 
-        <!--<Button-->
-            <!--android:id="@+id/btnLabEvaluation"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="btnLabEvaluationClicked"-->
-            <!--android:text="Lab Evaluation"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnLabCreation" />-->
 
-        <!--<Button-->
-            <!--android:id="@+id/btnLabCreation"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="btnLabCreationClicked"-->
-            <!--android:text="Lab Creation"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnRubricsDefinition" />-->
+        </android.support.v7.widget.CardView>
 
-        <!--<Button-->
-            <!--android:id="@+id/btnRubricsDefinition"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="24dp"-->
-            <!--android:layout_marginLeft="24dp"-->
-            <!--android:layout_marginRight="24dp"-->
-            <!--android:layout_marginStart="24dp"-->
-            <!--android:layout_marginTop="16dp"-->
-            <!--android:onClick="btnRubricsDefinitionClicked"-->
-            <!--android:text="Rubrics Definition"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnCloCreation" />-->
-    <!--</android.support.constraint.ConstraintLayout>-->
     </FrameLayout>
 
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/bargraph"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="invisible"></com.github.mikephil.charting.charts.BarChart>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
