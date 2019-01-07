@@ -21,12 +21,17 @@ import java.util.List;
 
 public class NewRubricActivity extends AppCompatActivity {
 
+    private  String courseId;
+    private  String teacherId;
     ListView levels;
     int level;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_rubric);
+
+        courseId = getIntent().getStringExtra("courseId");
+        teacherId = getIntent().getStringExtra("teacherId");
 
         levels = findViewById(R.id.levelList);
         level = getLevel(getIntent().getStringExtra("levels"));
@@ -89,6 +94,9 @@ public class NewRubricActivity extends AppCompatActivity {
             Rubric.rubric.addGradingLevel(new GradingLevel("Level "+i,Integer.parseInt(marks)));
             i++;
         }
+        Rubric.rubric.teacherID = teacherId;
+        Rubric.rubric.courseID = courseId;
+        Rubric.rubric.section = "A";
         Rubric.rubric.saveRubric(this);
 
         startActivity(new Intent(this,AddCloActivity.class));

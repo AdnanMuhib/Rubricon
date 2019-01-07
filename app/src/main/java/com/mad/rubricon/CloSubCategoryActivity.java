@@ -20,6 +20,8 @@ public class CloSubCategoryActivity extends AppCompatActivity {
     Spinner spinner;
     ListView subCategory;
     ArrayAdapter<String> adapter;
+    DBManager db;
+    String[] closArray = {};
 
     String [] values={};
     @Override
@@ -35,9 +37,22 @@ public class CloSubCategoryActivity extends AppCompatActivity {
         subCategory.setAdapter(adapter);
 
         // Spinner adapter...
+
+        try {
+            db = new DBManager(this);
+            db.open();
+        }catch(Exception e)
+        {
+        }
+        String clos = db.getClo(Rubric.rubric.courseID);
+        if (!clos.equals("")){
+            clos = clos.substring(0,clos.length()-1);
+            closArray = clos.split(",");
+        }
+
         spinner = findViewById(R.id.spCLOID);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<>(this,
-                R.layout.support_simple_spinner_dropdown_item,getResources().getStringArray(R.array.clos));
+                R.layout.support_simple_spinner_dropdown_item,closArray);
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
 

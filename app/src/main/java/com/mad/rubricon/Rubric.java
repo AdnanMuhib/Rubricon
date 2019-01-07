@@ -22,7 +22,10 @@ public class Rubric {
         this.teacherID = teacherID;
         this.section = section;
     }
-    private Rubric(){}
+    private Rubric(){
+        rubricCLOs = new ArrayList<>();
+        gradingLevels = new ArrayList<>();
+    }
 
     public String getCourseID() {
         return courseID;
@@ -69,7 +72,7 @@ public class Rubric {
         RubricTable rubricTable = new RubricTable(context);
         rubricTable.open();
         this.id = rubricTable.getCount();
-        rubricTable.createEntry(id,"2","Rubric","2","D");
+        rubricTable.createEntry(id,courseID,"Rubric",teacherID,section);
         rubricTable.close();
 
         // Saving grading level of the rubric to the DB...

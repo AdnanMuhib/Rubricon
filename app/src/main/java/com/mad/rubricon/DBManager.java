@@ -578,4 +578,29 @@ public class DBManager {
         }
         return str;
     }
+
+
+    public ArrayList<String> getRegistrationNumber(String teacherId, String courseId){
+        database = dbHelper.getReadableDatabase();
+        Cursor cursor=database.rawQuery("Select RegNo from StudentTable where PersonID = (Select PersonID from StudentCourseTable" +
+                " where CourseCode = (Select CourseCode from TeacherCourseTable where PersonId = (Select PersonID from PersonTable" +
+                " where Email = ? )))", new String[]{teacherId});
+        int count = 0;
+        ArrayList<String> result = new ArrayList<>();
+
+        return result;
+    }
+
+    public String getClo(String courseCode){
+        database = dbHelper.getReadableDatabase();
+        Cursor cursor=database.rawQuery("Select CloNo from CourseCloTable where CourseCode = ?", new String[]{courseCode});
+        int count = 0;
+        String result = "";
+
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            result += cursor.getInt(0) + ",";
+        }
+
+        return result;
+    }
 }

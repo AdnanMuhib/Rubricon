@@ -65,18 +65,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Descriptions"
+                    android:text="Adding Criteria"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
+<<<<<<< Updated upstream
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 </LinearLayout>
 
 
+=======
+>>>>>>> Stashed changes
             </LinearLayout>
 
             <ImageView

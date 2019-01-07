@@ -59,6 +59,7 @@ public class RubricTable {
                                     person_name TEXT NOT NULL, _cell TEXT NOT NULL)
 
             */
+//            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
             String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
                     KEY_COURSE_ID + " TEXT, " +

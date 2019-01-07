@@ -59,13 +59,15 @@ public class LabEvaluationActivity extends AppCompatActivity {
                     Intent intent = new Intent(LabEvaluationActivity.this, LabEvalSelectWeekActivity.class);
                     TextView crseId = parent.getChildAt(position).findViewById(R.id.textViewCourseId);
                     intent.putExtra("requiredOperation", "LabCreation");
-                    intent.putExtra("crsId",crseId.getText().toString());
+                    intent.putExtra("courseId",crseId.getText().toString());
                     intent.putExtra("teacherId",teacherId);
                     startActivity(intent);
 
                 }else if(requiredOperation.equals("Rubrics")){
                     Intent intent = new Intent(LabEvaluationActivity.this, RubricsActivity.class);
-                    intent.putExtra("crsId","1");
+                    TextView crseId = parent.getChildAt(position).findViewById(R.id.textViewCourseId);
+                    intent.putExtra("courseId",crseId.getText().toString());
+                    intent.putExtra("teacherId",teacherId);
                     startActivity(intent);
 
                 } else{

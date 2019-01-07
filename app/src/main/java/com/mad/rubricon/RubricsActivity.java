@@ -24,6 +24,8 @@ import java.util.ArrayList;
 
 public class RubricsActivity extends AppCompatActivity {
 
+    private  String courseId;
+    private  String teacherId;
     ListView rubrics;
     String[] values  = {};
     String[] rubricIds = {};
@@ -34,6 +36,8 @@ public class RubricsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rubrics);
 
+        courseId = getIntent().getStringExtra("courseId");
+        teacherId = getIntent().getStringExtra("teacherId");
         rubrics = findViewById(R.id.rubricsList);
         newRubric = findViewById(R.id.newRubric);
 
@@ -126,6 +130,8 @@ public class RubricsActivity extends AppCompatActivity {
                 String selected = spinner.getSelectedItem().toString();
                 Intent intent = new Intent(getBaseContext(),NewRubricActivity.class);
                 intent.putExtra("levels" ,selected);
+                intent.putExtra("courseId",courseId);
+                intent.putExtra("teacherId",teacherId);
                 startActivity(intent);
             }
         });
@@ -139,7 +145,4 @@ public class RubricsActivity extends AppCompatActivity {
         builder.show();
     }
 
-    public void btnLAB(View v) {
-        startActivity(new Intent(this,LabActivity.class));
-    }
 }
