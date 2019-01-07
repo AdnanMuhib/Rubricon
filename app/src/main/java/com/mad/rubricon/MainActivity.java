@@ -249,13 +249,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public  void btnRubricClicked(){
-<<<<<<< Updated upstream
         Intent intent = new Intent(this, RubricsActivity.class);
         intent.putExtra("TeacherId", teacherEmail);
-=======
-        Intent intent = new Intent(this, LabEvaluationActivity.class);
         intent.putExtra("ActivityName","Rubrics");
->>>>>>> Stashed changes
         startActivity(intent);
     }
     public  void btnLabReportingClicked(){

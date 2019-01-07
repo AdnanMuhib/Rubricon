@@ -29,13 +29,9 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_eval_select_week);
-<<<<<<< Updated upstream
         courseId = getIntent().getStringExtra("crsId");
         teacherId = getIntent().getStringExtra("teacherId");
-=======
         fab = findViewById(R.id.newLab);
-        courseId = Integer.parseInt(getIntent().getStringExtra("crsId"));
->>>>>>> Stashed changes
         requiredOperation = getIntent().getStringExtra("requiredOperation");
 
         // find the Weekly Labs using Lab Course Id from Data Base

@@ -35,17 +35,17 @@ public class Login extends AppCompatActivity {
         try {
             db = new DBManager(this);
             db.open();
-//            long result =  db.registerAdmin( "Adnan","a@e.com", "36304-1550897-9","10-08-1998",
-//                    "111");
-//            if(result == -1)
-//            {
-//                //showMessage("Error", "Record not added");
-//            }
-//            else
-//            {
-//                //showMessage("Success", "Record added");
-//               // clearText();
-//            }
+            long result =  db.registerAdmin( "Adnan","a@e.com", "36304-1550897-9","10-08-1998",
+                    "111");
+            if(result == -1)
+            {
+                //showMessage("Error", "Record not added");
+            }
+            else
+            {
+                //showMessage("Success", "Record added");
+               // clearText();
+            }
         }catch(Exception e)
         {
         }
