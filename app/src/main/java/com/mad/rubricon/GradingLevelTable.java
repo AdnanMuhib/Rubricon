@@ -50,6 +50,15 @@ public class GradingLevelTable {
             db.execSQL(sqlCode);
         }
 
+        public void create(SQLiteDatabase db){
+            String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
+                    KEY_ROWID + " INTEGER PRIMARY KEY, " +
+                    KEY_TITLE_ID + " TEXT, " +
+                    KEY_MARKS_ID + " DOUBLE, "+
+                    KEY_RUBRIC_ID + " INTEGER);";
+            db.execSQL(sqlCode);
+        }
+
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
@@ -66,10 +75,7 @@ public class GradingLevelTable {
     public void create(){
         this.ourHelper = new DBHelper(this.ourContext);
         this.ourDatabase = this.ourHelper.getWritableDatabase();
-        this.delete();
-        this.ourDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
-        //this.close();
-        ourHelper.onCreate(ourDatabase);
+        ourHelper.create(ourDatabase);
     }
 
     public void close(){

@@ -18,6 +18,8 @@ import java.util.ArrayList;
 public class LabEvalSelectQuestionActivity extends AppCompatActivity {
     private  int courseId;
     private String weekId;
+    private int teacherId;
+    private String weekText;
 
     TextView courseTitleView;
     TextView courseWeekView;
@@ -30,8 +32,9 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lab_eval_select_question);
 
         courseId = getIntent().getIntExtra("CourseId", 0);
-        weekId = getIntent().getStringExtra("CourseWeek");
-
+        weekText = getIntent().getStringExtra("CourseWeek");
+        weekId = getIntent().getStringExtra("CourseWeekId");
+        teacherId = getIntent().getIntExtra("TeacherId", 0);
         courseTitleView = (TextView) findViewById(R.id.textViewCourseTitle);
 
         // get the course title from db using id and display
@@ -39,26 +42,34 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         courseTitleView.setText("Course Id: " + courseId);
 
         courseWeekView = (TextView) findViewById(R.id.textViewCourseWeek);
-        courseWeekView.setText("Week Id: " + weekId);
+        courseWeekView.setText("Week Id: " + weekText);
 
         questionsListView = (ListView) findViewById(R.id.listViewCourseWeekQuestions);
-        ArrayList<String>  questionsList =  GetQuestionsList();
+        final ArrayList<String>  questionsList =  GetQuestionsList();
 
-        // when a week is clicked from the list
-        questionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String value = (String)parent.getItemAtPosition(position);
-                Log.i("DebugLog", value);
-
-                // code to go to next activity where Questions will be Displayed for Evaluation
-                GoToEvaluationActivity(value);
+        if(questionsList.size()>0){
+            ArrayList<String> qustnsTitle = new ArrayList<>();
+            for(int i=0;i<questionsList.size();i++){
+                String[] split = questionsList.get(i).split(",");
+                qustnsTitle.add(split[1]);
             }
-        });
+            // when a week is clicked from the list
+            questionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    String value = (String)parent.getItemAtPosition(position);
+                    Log.i("DebugLog", value);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.single_item_list, questionsList);
+                    // code to go to next activity where Questions will be Displayed for Evaluation
+                    GoToEvaluationActivity(questionsList.get(position).split(",")[0]);
+                }
+            });
 
-        questionsListView.setAdapter(adapter);
+            ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.single_item_list, qustnsTitle);
+            questionsListView.setAdapter(adapter);
+        }
+
+
         Toolbar toolbar = findViewById(R.id.toolbar_lab_question_activity);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -92,6 +103,11 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         ArrayList<String> questions = new ArrayList<String>();
         /// Code to get the Questions from the Database goes here
 
+        QuestionTable table = new QuestionTable(this);
+        table.open();
+
+        ArrayList<String> list = table.getQuestions(Integer.parseInt(weekId));
+        table.close();
         // Dummy Data Goes Here
         questions.add("Question 1");
         questions.add("Question 2");
@@ -99,13 +115,14 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         questions.add("Question 4");
         questions.add("Question 5");
 
-        return  questions;
+        return  list;
     }
     public  void GoToEvaluationActivity(String val){
         Intent intent = new Intent(this, LabEvalEnterMarksActivity.class);
         intent.putExtra("CourseId", courseId);
         intent.putExtra("CourseWeek", weekId);
         intent.putExtra("QuestionId", val);
+        intent.putExtra("TeacherId", teacherId);
 
         startActivity(intent);
     }

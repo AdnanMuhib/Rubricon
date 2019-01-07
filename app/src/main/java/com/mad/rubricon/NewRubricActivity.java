@@ -3,9 +3,12 @@ package com.mad.rubricon;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -26,11 +29,43 @@ public class NewRubricActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_rubric);
 
         levels = findViewById(R.id.levelList);
-        level = Rubric.rubric.gradingLevels.size();
+        level = getLevel(getIntent().getStringExtra("levels"));
         LevelAdapter levelAdapter = new LevelAdapter(this,R.layout.level_item_marks, level);
 
         levels.setAdapter(levelAdapter);
 
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Rubrics");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+    }
+
+    public int getLevel(String level){
+        switch (level){
+            case "one":
+                return 1;
+            case "two":
+                return 2;
+            case "three":
+                return 3;
+            case "four":
+                return 4;
+            case "five":
+                return 5;
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void cancelActivity(View View){
@@ -47,7 +82,7 @@ public class NewRubricActivity extends AppCompatActivity {
                 etMarks.setError("Please enter marks!");
                 return;
             }
-            marksList.add(marks);
+            marksList.add(marksList.size(),marks);
         }
         int i = 1;
         for (String marks:marksList){
@@ -57,6 +92,7 @@ public class NewRubricActivity extends AppCompatActivity {
         Rubric.rubric.saveRubric(this);
 
         startActivity(new Intent(this,AddCloActivity.class));
+        finish();
     }
 
     public class LevelAdapter extends ArrayAdapter {
@@ -87,8 +123,7 @@ public class NewRubricActivity extends AppCompatActivity {
                 view = layoutInflater.inflate(R.layout.level_item_marks, null);
             }
 
-            TextView level_ = (TextView) view.findViewById(R.id.level);
-            EditText iconview = (EditText) view.findViewById(R.id.marks);
+            TextView level_ = (TextView) view.findViewById(R.id.levelTitle);
 
             level_.setText("Level " + (position+1));
 

@@ -4,10 +4,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,7 +25,8 @@ import java.util.ArrayList;
 public class RubricsActivity extends AppCompatActivity {
 
     ListView rubrics;
-    String[] values = {"Rubric 1", "Rubric 2"};
+    String[] values  = {};
+    String[] rubricIds = {};
     FloatingActionButton newRubric;
 
     @Override
@@ -33,15 +37,57 @@ public class RubricsActivity extends AppCompatActivity {
         rubrics = findViewById(R.id.rubricsList);
         newRubric = findViewById(R.id.newRubric);
 
+        RubricTable rubricTable = new RubricTable(this);
+        rubricTable.open();
+        String ids = rubricTable.getIds("2","2");
+        if (!ids.equals("")){
+            ids = ids.substring(0,ids.length()-1);
+            rubricIds = ids.split(",");
+            values = new String[rubricIds.length];
+            for (int i=0; i<rubricIds.length; i++)
+                values[i] = "Rubric " + (i+1);
+        }
+        rubricTable.close();
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         rubrics.setAdapter(adapter);
 
-//        for(int i=0; i<rubrics.getCount(); i++){
-//            View itemView = (View) rubrics.getChildAt(i);
-//            TextView item = itemView.findViewById(android.R.id.text1);
-//            item.setTextColor(Color.BLACK);
-//        }
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Back");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        RubricTable rubricTable = new RubricTable(this);
+        rubricTable.open();
+        String ids = rubricTable.getIds("2","2");
+        if (!ids.equals("")){
+            ids = ids.substring(0,ids.length()-1);
+            rubricIds = ids.split(",");
+            values = new String[rubricIds.length];
+            for (int i=0; i<rubricIds.length; i++)
+                values[i] = "Rubric " + (i+1);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_list_item_1, android.R.id.text1, values);
+            rubrics.setAdapter(adapter);
+        }
+        rubricTable.close();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void createRubric(View view){

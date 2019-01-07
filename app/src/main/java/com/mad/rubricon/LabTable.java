@@ -56,6 +56,17 @@ public class LabTable {
             db.execSQL(sqlCode);
         }
 
+        public void create(SQLiteDatabase db){
+            String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
+                    KEY_ROWID + " INTEGER PRIMARY KEY, " +
+                    KEY_LAB_TITLE + " TEXT, "+
+                    KEY_COURSE_ID + " TEXT, "+
+                    KEY_SECTION + " TEXT, "+
+                    KEY_TEACHER_ID + " TEXT, "+
+                    KEY_MARKS_WEIGHT + " DOUBLE, " +
+                    KEY_MARKS + " DOUBLE);";
+            db.execSQL(sqlCode);
+        }
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
@@ -72,10 +83,7 @@ public class LabTable {
     public void create(){
         this.ourHelper = new DBHelper(this.ourContext);
         this.ourDatabase = this.ourHelper.getWritableDatabase();
-        this.delete();
-        this.ourDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
-        //this.close();
-        ourHelper.onCreate(ourDatabase);
+        ourHelper.create(ourDatabase);
     }
 
     public void close(){
@@ -110,13 +118,35 @@ public class LabTable {
         int iSection = cursor.getColumnIndex(KEY_SECTION);
 
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            result += cursor.getString(iRowID) +',' +cursor.getString(iTitle)+ "," + cursor.getString(iMarksWeight)+',' +
+            result += cursor.getInt(iRowID) +',' +cursor.getString(iTitle)+ "," + cursor.getString(iMarksWeight)+',' +
                     cursor.getString(iMarks) + ',' +cursor.getString(iCourseId) + ',' +cursor.getString(iTeacherId) +
                     ',' +cursor.getString(iSection) + ":";
         }
         cursor.close();
 
         return result;
+    }
+
+    public ArrayList<String> getLabId(String teacher, String courseId){
+        String [] colomns = new String []{KEY_ROWID, KEY_LAB_TITLE,KEY_TEACHER_ID,KEY_COURSE_ID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,KEY_ROWID);
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iTitle = cursor.getColumnIndex(KEY_LAB_TITLE);
+        int iCourseId = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeacherId = cursor.getColumnIndex(KEY_TEACHER_ID);
+
+        ArrayList<String> values = new ArrayList<>();
+
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            if (cursor.getString(iTeacherId).equals(teacher) && cursor.getString(iCourseId).equals(courseId)) {
+                String value = cursor.getInt(iRowID) + "," + cursor.getString(iTitle);
+                values.add(value);
+            }
+        }
+
+        return values;
     }
 
     public int getCount(){

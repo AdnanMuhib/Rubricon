@@ -49,6 +49,14 @@ public class QuestionTable {
                     KEY_MARKS + " DOUBLE);";
             db.execSQL(sqlCode);
         }
+        public void create(SQLiteDatabase db){
+            String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
+                    KEY_ROWID + " INTEGER PRIMARY KEY, " +
+                    KEY_RUBRIC_CLO_ID + " INTEGER, " +
+                    KEY_LAB_ID + " INTEGER, "+
+                    KEY_MARKS + " DOUBLE);";
+            db.execSQL(sqlCode);
+        }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -60,16 +68,13 @@ public class QuestionTable {
     public QuestionTable open() throws SQLException {
         this.ourHelper = new DBHelper(this.ourContext);
         this.ourDatabase = this.ourHelper.getWritableDatabase();
-        //ourHelper.onUpgrade(ourDatabase,1,DATABASE_VERSION);
         return this;
     }
+
     public void create(){
         this.ourHelper = new QuestionTable.DBHelper(this.ourContext);
         this.ourDatabase = this.ourHelper.getWritableDatabase();
-        this.delete();
-        this.ourDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
-        //this.close();
-        ourHelper.onCreate(ourDatabase);
+        ourHelper.create(ourDatabase);
     }
 
     public void close(){
@@ -104,6 +109,28 @@ public class QuestionTable {
         cursor.close();
 
         return result;
+    }
+
+    public ArrayList<String> getQuestions(int labId){
+        String [] colomns = new String []{KEY_ROWID,KEY_LAB_ID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+        int count = 1;
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iLab = cursor.getColumnIndex(KEY_LAB_ID);
+
+        ArrayList<String> values = new ArrayList<>();
+
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            if (cursor.getInt(iLab) == labId) {
+                String value = cursor.getInt(iRowID) + ",Question " + count;
+                values.add(value);
+                count++;
+            }
+        }
+
+        return values;
     }
 
     public int getCount(){

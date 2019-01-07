@@ -1,6 +1,7 @@
 package com.mad.rubricon;
 
 public class GradingLevel {
+    int id;
     String title;
     double marks;
     int rubricID;

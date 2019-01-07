@@ -120,6 +120,24 @@ public class MainActivity extends AppCompatActivity {
 
        // dl.setDrawerListener(t);
        // t.syncState();
+        QuestionTable questionTable = new QuestionTable(this);
+        questionTable.create();
+        questionTable.close();
+        GradingLevelTable grade_table = new GradingLevelTable(this);
+        grade_table.create();
+        grade_table.close();
+        LabTable lab_table = new LabTable(this);
+        lab_table.create();
+        lab_table.close();
+        QuestionTable question_table = new QuestionTable(this);
+        question_table.create();
+        question_table.close();
+        RubricTable rubricTable = new RubricTable(this);
+        rubricTable.create();
+        rubricTable.close();
+        StudentMarksTable marksTable = new StudentMarksTable(this);
+        marksTable.create();
+      
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -153,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+    }
 
     }
     public void showMessage(String title, String message) {

@@ -2,9 +2,12 @@ package com.mad.rubricon;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -21,6 +24,7 @@ public class DescriptionsActivity extends AppCompatActivity {
     EditText title;
     EditText description;
     int level;
+    int criteriaId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +34,59 @@ public class DescriptionsActivity extends AppCompatActivity {
         title = findViewById(R.id.etCriteriaTitle);
         description = findViewById(R.id.etDescription);
 
-        desList = findViewById(R.id.subCategoryList);
+        desList = findViewById(R.id.gradingLevelList);
         level = Rubric.rubric.gradingLevels.size();
-        descriptionAdapter adapter = new descriptionAdapter(this,R.layout.category_item, level);
+        descriptionAdapter adapter = new descriptionAdapter(this,R.layout.level_item_description, level);
         desList.setAdapter(adapter);
+
+        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("Back");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+
+        criteriaId = getIntent().getIntExtra("criteriaId",-1);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (criteriaId != -1)
+            loadData();
+    }
+
+    public void loadData(){
+        Criteria criteria = RubricCLO.rubricCLO.criteriaArrayList.get(criteriaId);
+        title.setText(criteria.title);
+        description.setText(criteria.description);
+
+        for (int i =0; i<level; i++){
+            View item = desList.getChildAt(i);
+            EditText etDesc = item.findViewById(R.id.etLevelDescription);
+            etDesc.setText(criteria.bridgeGCs.get(i).description);
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void saveCriteria(View view){
+        Criteria criteria;
+        if (criteriaId == -1)
+            criteria = new Criteria();
+        else
+            criteria = RubricCLO.rubricCLO.criteriaArrayList.get(criteriaId);
+
         String criteriaTitle = title.getText().toString();
         String des = description.getText().toString();
 
@@ -60,11 +110,21 @@ public class DescriptionsActivity extends AppCompatActivity {
                 }
                 descList.add(desc);
             }
-            int i = 1;
-            for (String marks:descList){
-                Rubric.rubric.addGradingLevel(new GradingLevel("Level "+i,Integer.parseInt(marks)));
+
+            criteria.setTitle(criteriaTitle);
+            criteria.setDescription(des);
+
+            int i = 0;
+            for (String desc_:descList){
+                if (criteriaId == -1)
+                    criteria.addBridgeGC(new BridgeGC(Rubric.rubric.gradingLevels.get(i).id,desc_));
+                else
+                    criteria.bridgeGCs.get(i).description = desc_;
                 i++;
             }
+            if (criteriaId == -1)
+                RubricCLO.rubricCLO.addCriteria(criteria);
+            finish();
         }
     }
 
