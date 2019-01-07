@@ -172,8 +172,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
-    }
     public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);

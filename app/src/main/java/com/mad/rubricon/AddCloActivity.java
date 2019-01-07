@@ -27,10 +27,10 @@ public class AddCloActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, android.R.id.text1, CLOs);
         addClo.setAdapter(adapter);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        Toolbar toolbar = findViewById(R.id.toolbar_courses);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
-        actionbar.setTitle("Back");
+        actionbar.setTitle("Add CLO");
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
     }

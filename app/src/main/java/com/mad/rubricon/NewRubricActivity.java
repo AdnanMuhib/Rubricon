@@ -34,7 +34,7 @@ public class NewRubricActivity extends AppCompatActivity {
 
         levels.setAdapter(levelAdapter);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        Toolbar toolbar = findViewById(R.id.toolbar_courses);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle("Rubrics");

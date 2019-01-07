@@ -41,7 +41,7 @@ public class CloSubCategoryActivity extends AppCompatActivity {
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        Toolbar toolbar = findViewById(R.id.toolbar_courses);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle("CLO");

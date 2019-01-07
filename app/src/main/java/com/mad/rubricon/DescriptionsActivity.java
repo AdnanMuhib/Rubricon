@@ -39,10 +39,10 @@ public class DescriptionsActivity extends AppCompatActivity {
         descriptionAdapter adapter = new descriptionAdapter(this,R.layout.level_item_description, level);
         desList.setAdapter(adapter);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_lab_eval);
+        Toolbar toolbar = findViewById(R.id.toolbar_courses);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
-        actionbar.setTitle("Back");
+        actionbar.setTitle("Descriptions");
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
 
