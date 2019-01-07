@@ -172,9 +172,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
     public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
+        builder.setCancelable(false);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
@@ -250,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog);
         } else {
-            builder = new AlertDialog.Builder(this);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          builder = new AlertDialog.Builder(this);
         }
         //final Intent j = new Intent(this, Stats.class);
         final Intent j = new Intent(this, Login.class);
