@@ -37,6 +37,10 @@ public class Login extends AppCompatActivity {
             db.open();
             long result =  db.registerAdmin( "Adnan","a@e.com", "36304-1550897-9","10-08-1998",
                     "111");
+            result =  db.registerTeacher( "teacher","teacher@email.com", "12345-6587956-2","10-02-1997",
+                    "111","Professor","Computer Science","MS");
+            result =  db.registerCourse( "CS-123","Intro to Computing", "2015-CS",
+                    0,1,"Computing");
             if(result == -1)
             {
                 //showMessage("Error", "Record not added");
