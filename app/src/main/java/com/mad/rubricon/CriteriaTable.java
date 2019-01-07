@@ -19,7 +19,7 @@ public class CriteriaTable {
     private final String DATABASE_NAME = "LabGraderDB";
     private final String DATABASE_TABLE = "CriteriaTable";
 
-    private final int DATABASE_VERSION = 1;
+    private final int DATABASE_VERSION = 2;
     private CriteriaTable.DBHelper ourHelper;
     private final Context ourContext;
     private SQLiteDatabase ourDatabase;

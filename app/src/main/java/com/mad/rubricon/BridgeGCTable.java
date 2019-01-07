@@ -19,7 +19,7 @@ public class BridgeGCTable {
     private final String DATABASE_NAME = "LabGraderDB";
     private final String DATABASE_TABLE = "BridgeGCTable";
 
-    private final int DATABASE_VERSION = 1;
+    private final int DATABASE_VERSION = 2;
     private BridgeGCTable.DBHelper ourHelper;
     private final Context ourContext;
     private SQLiteDatabase ourDatabase;
