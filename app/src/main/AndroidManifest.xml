@@ -12,8 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".NewRubricActivity" />
         <activity
             android:name=".AddCloActivity"
@@ -41,10 +40,11 @@
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>/>
-        </activity>
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            />
+        </activity>
         <activity android:name=".StudentPanel" />
         <activity android:name=".TeacherCourseList" />
         <activity android:name=".Courses" />
@@ -55,7 +55,8 @@
         <activity android:name=".CourseUpdate" />
         <activity android:name=".CloCreation" />
         <activity android:name=".StudentCourseList" />
-        <activity android:name=".StudentCourses"></activity>
+        <activity android:name=".StudentCourses" />
+        <activity android:name=".RubricPdfActivity"></activity>
     </application>
 
 </manifest>

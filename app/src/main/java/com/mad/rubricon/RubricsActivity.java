@@ -53,6 +53,15 @@ public class RubricsActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         rubrics.setAdapter(adapter);
 
+        rubrics.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(RubricsActivity.this,RubricPdfActivity.class);
+                i.putExtra("RubricID",1);
+                startActivity(i);
+            }
+        });
+
         Toolbar toolbar = findViewById(R.id.toolbar_courses);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();

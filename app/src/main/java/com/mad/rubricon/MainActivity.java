@@ -122,6 +122,13 @@ public class MainActivity extends AppCompatActivity {
 
        // dl.setDrawerListener(t);
        // t.syncState();
+
+        BridgeGCTable gcTable = new BridgeGCTable(this);
+        gcTable.create();
+        gcTable.close();
+        CriteriaTable criteriaTable = new CriteriaTable(this);
+        criteriaTable.create();
+        criteriaTable.close();
         QuestionTable questionTable = new QuestionTable(this);
         questionTable.create();
         questionTable.close();
@@ -134,11 +141,15 @@ public class MainActivity extends AppCompatActivity {
         QuestionTable question_table = new QuestionTable(this);
         question_table.create();
         question_table.close();
+        RubricCLOTable rubricCLOTable = new RubricCLOTable(this);
+        rubricCLOTable.create();
+        rubricCLOTable.close();
         RubricTable rubricTable = new RubricTable(this);
         rubricTable.create();
         rubricTable.close();
         StudentMarksTable marksTable = new StudentMarksTable(this);
         marksTable.create();
+        marksTable.close();
       
         NavigationView navigationView = findViewById(R.id.nav_teacher_view);
         navigationView.setNavigationItemSelectedListener(
@@ -232,15 +243,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void btnLabCreateClicked(){
-
         Intent intent = new Intent(this, LabEvaluationActivity.class);
         intent.putExtra("ActivityName","LabCreation");
         intent.putExtra("TeacherId", teacherEmail);
         startActivity(intent);
     }
     public  void btnRubricClicked(){
+<<<<<<< Updated upstream
         Intent intent = new Intent(this, RubricsActivity.class);
         intent.putExtra("TeacherId", teacherEmail);
+=======
+        Intent intent = new Intent(this, LabEvaluationActivity.class);
+        intent.putExtra("ActivityName","Rubrics");
+>>>>>>> Stashed changes
         startActivity(intent);
     }
     public  void btnLabReportingClicked(){

@@ -123,6 +123,25 @@ public class RubricTable {
         return result;
     }
 
+    public String getData(int id){
+        String [] colomns = new String []{KEY_ROWID,KEY_COURSE_ID,KEY_RUBRIC_TITLE_ID,KEY_TEACHER_ID, KEY_SECTION};
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+        String result = "";
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iRubricTitleID = cursor.getColumnIndex(KEY_RUBRIC_TITLE_ID);
+        int iCourseID = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeacherID = cursor.getColumnIndex(KEY_TEACHER_ID);
+        int iSection = cursor.getColumnIndex(KEY_SECTION);
+
+        if (id == cursor.getInt(iRowID)){
+            result += cursor.getString(iRowID) + "," + cursor.getString(iRubricTitleID)+"," + cursor.getString(iCourseID)
+                    +","+ cursor.getString(iTeacherID)+ "," + cursor.getString(iSection) + ":";
+            return result;
+        }
+        cursor.close();
+        return result;
+    }
     public String getIds(String courseId, String teacherId){
         String [] colomns = new String []{KEY_ROWID,KEY_COURSE_ID,KEY_TEACHER_ID};
 
