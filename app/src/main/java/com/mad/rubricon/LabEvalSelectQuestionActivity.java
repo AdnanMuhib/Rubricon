@@ -16,9 +16,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class LabEvalSelectQuestionActivity extends AppCompatActivity {
-    private  int courseId;
+    private  String courseId;
     private String weekId;
-    private int teacherId;
+    private String teacherId;
     private String weekText;
 
     TextView courseTitleView;
@@ -31,10 +31,10 @@ public class LabEvalSelectQuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_eval_select_question);
 
-        courseId = getIntent().getIntExtra("CourseId", 0);
+        courseId = getIntent().getStringExtra("CourseId");
         weekText = getIntent().getStringExtra("CourseWeek");
         weekId = getIntent().getStringExtra("CourseWeekId");
-        teacherId = getIntent().getIntExtra("TeacherId", 0);
+        teacherId = getIntent().getStringExtra("TeacherId");
         courseTitleView = (TextView) findViewById(R.id.textViewCourseTitle);
 
         // get the course title from db using id and display

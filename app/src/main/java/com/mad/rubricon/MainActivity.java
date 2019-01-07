@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CourseData> userList;
     CourseData courseData;
     ArrayList<String> ListArr;
+    String teacherEmail;
     ArrayAdapter<String> itemsAdapter;
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         Teacher = (ListView) findViewById(R.id.listView);
         Intent Email = getIntent();
-        String teacherEmail = Email.getStringExtra("Email");
+        teacherEmail = Email.getStringExtra("Email");
         ListArr = new ArrayList<String>();
         userList = new ArrayList<>();
         Cursor c = db.getTeacherCoursesList(teacherEmail);
@@ -226,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
     public  void btnLabEvaluationClicked(){
         Intent intent = new Intent(this, LabEvaluationActivity.class);
         intent.putExtra("ActivityName","LabEvaluation");
-
+        intent.putExtra("TeacherId", teacherEmail);
         startActivity(intent);
     }
 
@@ -234,15 +235,18 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, LabEvaluationActivity.class);
         intent.putExtra("ActivityName","LabCreation");
+        intent.putExtra("TeacherId", teacherEmail);
         startActivity(intent);
     }
     public  void btnRubricClicked(){
         Intent intent = new Intent(this, RubricsActivity.class);
+        intent.putExtra("TeacherId", teacherEmail);
         startActivity(intent);
     }
     public  void btnLabReportingClicked(){
         Intent intent = new Intent(this, LabEvaluationActivity.class);
         intent.putExtra("ActivityName","LabReporting");
+        intent.putExtra("TeacherId", teacherEmail);
         startActivity(intent);
     }
     @Override

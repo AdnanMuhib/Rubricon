@@ -14,9 +14,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class LabEvalEnterMarksActivity extends AppCompatActivity {
-    private  int courseId;
+    private  String courseId;
     private String weekId;
-    private int teacherId;
+    private String teacherId;
     private String questionId;
 
     TextView courseTitleView;
@@ -29,9 +29,9 @@ public class LabEvalEnterMarksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_eval_enter_marks);
 
-        courseId = getIntent().getIntExtra("CourseId", 0);
+        courseId = getIntent().getStringExtra("CourseId");
         weekId = getIntent().getStringExtra("CourseWeek");
-        teacherId = getIntent().getIntExtra("TeacherId",0);
+        teacherId = getIntent().getStringExtra("TeacherId");
         questionId = getIntent().getStringExtra("QuestionId");
 
         courseTitleView = (TextView) findViewById(R.id.textViewCourseTitle);
@@ -91,17 +91,24 @@ public class LabEvalEnterMarksActivity extends AppCompatActivity {
     public ArrayList<CourseMarks> getMarksList(){
         ArrayList<CourseMarks> marksLst = new ArrayList<CourseMarks>();
 
-        // Code to Get the Marks of Every Student Goes Here
+        StudentMarksTable table = new StudentMarksTable(this);
+        table.open();
+        ArrayList<String> dataMarks = table.getStudentsMarks(teacherId, courseId, Integer.parseInt(weekId),
+                Integer.parseInt(questionId));
 
         // Dummy Data for Student Marks
-        marksLst.add(new CourseMarks(1,"2015-CS-51",5));
-        marksLst.add(new CourseMarks(2,"2015-CS-52",6));
-        marksLst.add(new CourseMarks(3,"2015-CS-53",7));
-        marksLst.add(new CourseMarks(4,"2015-CS-54",8));
-        marksLst.add(new CourseMarks(5,"2015-CS-55",9));
-        marksLst.add(new CourseMarks(6,"2015-CS-56",10));
-        marksLst.add(new CourseMarks(7,"2015-CS-57",4));
-        marksLst.add(new CourseMarks(8,"2015-CS-58",5));
+        for(int i= 0;i<dataMarks.size();i++){
+            String[] split = dataMarks.get(i).split(",");
+            marksLst.add(new CourseMarks(i,split[0],Integer.parseInt(split[1])));
+        }
+
+//        marksLst.add(new CourseMarks(2,"2015-CS-52",6));
+//        marksLst.add(new CourseMarks(3,"2015-CS-53",7));
+//        marksLst.add(new CourseMarks(4,"2015-CS-54",8));
+//        marksLst.add(new CourseMarks(5,"2015-CS-55",9));
+//        marksLst.add(new CourseMarks(6,"2015-CS-56",10));
+//        marksLst.add(new CourseMarks(7,"2015-CS-57",4));
+//        marksLst.add(new CourseMarks(8,"2015-CS-58",5));
         return  marksLst;
     }
 }

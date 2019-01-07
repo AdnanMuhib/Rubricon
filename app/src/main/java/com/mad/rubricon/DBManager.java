@@ -462,6 +462,21 @@ public class DBManager {
 
     }
 
+    public Cursor getCoursesOfTeacher(String teacherEmail)
+    {
+        database = dbHelper.getReadableDatabase();
+        Cursor c=database.rawQuery("Select Name from PersonTable where email=?",new String[]{teacherEmail});
+        if (c.getCount() == 0) {
+            return null;
+        }
+        if (c != null) {
+            //   c.moveToFirst();
+        }
+        return c;
+
+    }
+
+
     public ContentValues getLoginData(String Email,String Pass)
     {
         database = dbHelper.getReadableDatabase();

@@ -47,24 +47,24 @@ public class StudentMarksTable {
             */
             String sqlCode = "CREATE TABLE " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
-                    KEY_STUDENT_ID + " INTEGER, " +
+                    KEY_STUDENT_ID + " TEXT, " +
                     KEY_WEEK_ID + " INTEGER, "+
                     KEY_QUESTION_ID + " INTEGER, "+
                     KEY_COURSE_ID + " INTEGER, "+
                     KEY_OBTAINED_MARKS + " DOUBLE, "+
-                    KEY_TEACHER_ID + " INTEGER);";
+                    KEY_TEACHER_ID + " TEXT);";
             db.execSQL(sqlCode);
         }
 
         public void create(SQLiteDatabase db){
             String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
-                    KEY_STUDENT_ID + " INTEGER, " +
+                    KEY_STUDENT_ID + " TEXT, " +
                     KEY_WEEK_ID + " INTEGER, "+
                     KEY_QUESTION_ID + " INTEGER, "+
                     KEY_COURSE_ID + " INTEGER, "+
                     KEY_OBTAINED_MARKS + " DOUBLE, "+
-                    KEY_TEACHER_ID + " INTEGER);";
+                    KEY_TEACHER_ID + " TEXT);";
             db.execSQL(sqlCode);
         }
 
@@ -91,7 +91,7 @@ public class StudentMarksTable {
         this.ourHelper.close();
     }
 
-    public int checkStudentEntry(int studentId, int teacherId, int courseId, int weekId, int questionId){
+    public int checkStudentEntry(int studentId, String teacherId, String courseId, int weekId, int questionId){
         String [] colomns = new String []{KEY_ROWID,
                 KEY_STUDENT_ID,
                 KEY_WEEK_ID,
@@ -115,8 +115,8 @@ public class StudentMarksTable {
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
             if(cursor.getInt(iStdId) == studentId &&
                     cursor.getInt(iWeekId) == weekId &&
-                    cursor.getInt(iTeachId) == teacherId &&
-                    cursor.getInt(iCourseId) == courseId &&
+                    cursor.getString(iTeachId) == teacherId &&
+                    cursor.getString(iCourseId) == courseId &&
                     cursor.getInt(iWeekId) == weekId &&
                     cursor.getInt(iQstnId) == questionId
                     ) {
@@ -130,9 +130,44 @@ public class StudentMarksTable {
         return check;
     }
 
+    public ArrayList<String> getStudentsMarks(String teacherId, String courseId, int weekId, int questionId){
+        ArrayList<String> cols = new  ArrayList<>();
+        String [] colomns = new String []{KEY_ROWID,
+                KEY_STUDENT_ID,
+                KEY_WEEK_ID,
+                KEY_QUESTION_ID,
+                KEY_COURSE_ID,
+                KEY_TEACHER_ID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,
+                null,null,null,null,null);
+
+        String result = "";
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iStdId = cursor.getColumnIndex(KEY_STUDENT_ID);
+        int iWeekId = cursor.getColumnIndex(KEY_WEEK_ID);
+        int iQstnId = cursor.getColumnIndex(KEY_QUESTION_ID);
+        int iCourseId = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeachId = cursor.getColumnIndex(KEY_TEACHER_ID);
+        int iMarks = cursor.getColumnIndex(KEY_OBTAINED_MARKS);
 
 
-    public long createEntry(int studentId, int teacherId, int courseId, int weekId, int questionId, double obtainedMarks){
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            if(
+                    cursor.getInt(iWeekId) == weekId &&
+                    cursor.getString(iTeachId) == teacherId &&
+                    cursor.getString(iCourseId) == courseId &&
+                    cursor.getInt(iQstnId) == questionId
+                    ) {
+                cols.add(cursor.getString(iStdId)+","+cursor.getString(iMarks));
+            }
+        }
+        cursor.close();
+        return cols;
+    }
+
+    public long createEntry(int studentId, String teacherId, String courseId, int weekId, int questionId, double obtainedMarks){
         ContentValues cv = new ContentValues();
         cv.put(KEY_STUDENT_ID,studentId);
         cv.put(KEY_TEACHER_ID,teacherId);
@@ -151,7 +186,7 @@ public class StudentMarksTable {
         ourDatabase.update(DATABASE_TABLE, cv, KEY_ROWID + "=?",args);
     }
 
-    public void updateDatabase(ArrayList<Integer> studentId, int teacherId, int courseId,
+    public void updateDatabase(ArrayList<Integer> studentId, String teacherId, String courseId,
                                int weekId, int questionId, ArrayList<Double> obtainedMarks){
         for (int i = 0; i < studentId.size(); i++){
             int rowId = checkStudentEntry(Integer.parseInt(studentId.get(i).toString()),

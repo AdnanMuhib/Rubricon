@@ -57,6 +57,7 @@ public class LabTable {
         }
 
         public void create(SQLiteDatabase db){
+//            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
             String sqlCode = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
                     KEY_ROWID + " INTEGER PRIMARY KEY, " +
                     KEY_LAB_TITLE + " TEXT, "+
@@ -130,7 +131,8 @@ public class LabTable {
     public ArrayList<String> getLabId(String teacher, String courseId){
         String [] colomns = new String []{KEY_ROWID, KEY_LAB_TITLE,KEY_TEACHER_ID,KEY_COURSE_ID};
 
-        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,KEY_ROWID);
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,
+                null,null,null,null,KEY_ROWID);
 
         int iRowID = cursor.getColumnIndex(KEY_ROWID);
         int iTitle = cursor.getColumnIndex(KEY_LAB_TITLE);
@@ -140,10 +142,13 @@ public class LabTable {
         ArrayList<String> values = new ArrayList<>();
 
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            if (cursor.getString(iTeacherId).equals(teacher) && cursor.getString(iCourseId).equals(courseId)) {
-                String value = cursor.getInt(iRowID) + "," + cursor.getString(iTitle);
-                values.add(value);
-            }
+            String a = cursor.getString(iTeacherId);
+            String b = cursor.getString(iCourseId);
+            if(a != null && b != null)
+                if (cursor.getString(iTeacherId).equals(teacher) && cursor.getString(iCourseId).equals(courseId)) {
+                    String value = cursor.getInt(iRowID) + "," + cursor.getString(iTitle);
+                    values.add(value);
+                }
         }
 
         return values;

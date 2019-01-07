@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LabEvalSelectWeekActivity extends AppCompatActivity {
-    private  int courseId = 2;
-    private  int teacherId = 2;
+    private  String courseId = "2";
+    private  String teacherId;
     String requiredOperation;
     ArrayList<String> courseWeeksList;
 
@@ -27,8 +27,10 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_eval_select_week);
-        courseId = Integer.parseInt(getIntent().getStringExtra("crsId"));
+        courseId = getIntent().getStringExtra("crsId");
+        teacherId = getIntent().getStringExtra("teacherId");
         requiredOperation = getIntent().getStringExtra("requiredOperation");
+
         // find the Weekly Labs using Lab Course Id from Data Base
         courseWeeksList = GetCourseWeeks();
 //        courseWeeksList.add("Course Id" + courseId);
@@ -102,7 +104,7 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
 
         LabTable table = new LabTable(this);
         table.open();
-        ArrayList<String> labs = table.getLabId(String.valueOf(teacherId),String.valueOf(2));
+        ArrayList<String> labs = table.getLabId(teacherId,courseId);
         table.close();
 
         // Dummy Data for Testing
@@ -119,6 +121,8 @@ public class LabEvalSelectWeekActivity extends AppCompatActivity {
 
     public void createLab(View view){
         Intent intent = new Intent(LabEvalSelectWeekActivity.this, LabActivity.class);
+        intent.putExtra("teacherId", teacherId);
+        intent.putExtra("courseId", courseId);
         startActivity(intent);
     }
     public void GoToQuestionsActivity(String val){

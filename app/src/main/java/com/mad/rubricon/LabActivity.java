@@ -26,7 +26,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class LabActivity extends AppCompatActivity {
-
+    private  String courseId = "2";
+    private  String teacherId;
     Button btnAdd;
     EditText labTitle;
     EditText labMarks;
@@ -39,6 +40,8 @@ public class LabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab);
 
+        courseId = getIntent().getStringExtra("courseId");
+        teacherId = getIntent().getStringExtra("teacherId");
         labMarks = findViewById(R.id.etLabMarks);
         labTitle = findViewById(R.id.etLabTitle);
         marksWeightage = findViewById(R.id.etLMWeightage);
@@ -231,6 +234,8 @@ public class LabActivity extends AppCompatActivity {
         }
         else {
             Lab lab = Lab.lab;
+            lab.courseID = courseId;
+            lab.teacherID = teacherId;
             lab.setLabTitle(title);
             lab.setLabMarks(Double.parseDouble(marks));
             lab.setMarksWeight(Double.parseDouble(weightage));

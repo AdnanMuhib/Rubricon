@@ -21,7 +21,9 @@ public class Lab {
         this.labMarks = labMarks;
         this.marksWeight = marksWeight;
     }
-    public Lab(){}
+    public Lab(){
+        questions = new ArrayList<>();
+    }
 
     public double getLabMarks() {
         return labMarks;
@@ -55,7 +57,7 @@ public class Lab {
         LabTable table = new LabTable(context);
         table.open();
         int labId = table.getCount();
-        table.createEntry(labId,labMarks,marksWeight,labTitle,"2","2","D");
+        table.createEntry(labId,labMarks,marksWeight,labTitle,teacherID,courseID,"A");
 
         Toast.makeText(context,table.getData(),Toast.LENGTH_SHORT).show();
         table.close();
@@ -69,6 +71,6 @@ public class Lab {
         }
         questionTable.close();
 
-
+        lab = new Lab();
     }
 }
