@@ -103,7 +103,7 @@
 
                     <Spinner
                         android:id="@+id/Clono_spinner"
-                        android:layout_width="200dp"
+                        android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_alignBottom="@+id/textView"
                         android:layout_alignParentTop="true"
@@ -153,7 +153,7 @@
 
                     <Spinner
                         android:id="@+id/Priorityspinner"
-                        android:layout_width="200dp"
+                        android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_alignBottom="@+id/textView2"
                         android:layout_alignParentTop="true"

@@ -70,16 +70,10 @@
                     android:text="Adding Criteria"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
-
-<<<<<<< Updated upstream
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 </LinearLayout>
-
-
-=======
->>>>>>> Stashed changes
             </LinearLayout>
 
             <ImageView
