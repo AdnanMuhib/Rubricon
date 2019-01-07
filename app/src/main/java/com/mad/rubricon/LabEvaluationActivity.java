@@ -63,6 +63,11 @@ public class LabEvaluationActivity extends AppCompatActivity {
                     intent.putExtra("teacherId",teacherId);
                     startActivity(intent);
 
+                }else if(requiredOperation.equals("Rubrics")){
+                    Intent intent = new Intent(LabEvaluationActivity.this, RubricsActivity.class);
+                    intent.putExtra("crsId","1");
+                    startActivity(intent);
+
                 } else{
                     Intent intent = new Intent(LabEvaluationActivity.this, LabReportActivity.class);
                     intent.putExtra("crsId","1");
