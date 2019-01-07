@@ -56,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_teacher_layout);
         try {
             db = new DBManager(this);
             db.open();
         } catch (Exception e) {
         }
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbarTeacher);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setTitle("Teacher Panel");
@@ -76,15 +76,16 @@ public class MainActivity extends AppCompatActivity {
         userList = new ArrayList<>();
         Cursor c = db.getTeacherCoursesList(teacherEmail);
         // Checking if no records found
-        if (c.getCount() == 0) {
+        if (c == null) {
             showMessage("Error", "No records found");
-            return;
         }
-        // Appending records to a string buffer
+        else {
+            // Appending records to a string buffer
 
-        while (c.moveToNext()) {
-            courseData = new CourseData(c.getString(0),c.getString(1),c.getString(2));
-            userList.add(courseData);
+            while (c.moveToNext()) {
+                courseData = new CourseData(c.getString(0), c.getString(1), c.getString(2));
+                userList.add(courseData);
+            }
         }
         ThreeColumn_ListAdapter adapter = new ThreeColumn_ListAdapter(this, R.layout.list_adapter_view,userList);
         Teacher.setAdapter(adapter);
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         StudentMarksTable marksTable = new StudentMarksTable(this);
         marksTable.create();
       
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_teacher_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -175,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
+        builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
@@ -256,19 +257,19 @@ public class MainActivity extends AppCompatActivity {
         //final Intent j = new Intent(this, Stats.class);
         final Intent j = new Intent(this, Login.class);
         builder.setTitle("Log Out")
-                .setMessage("Are you sure you want to logout")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        j.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(j);
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        return;
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+            .setMessage("Are you sure you want to logout")
+            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    j.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(j);
+                }
+            })
+            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    return;
+                }
+            })
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .show();
     }
 }
