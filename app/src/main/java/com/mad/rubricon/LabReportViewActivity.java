@@ -35,6 +35,8 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
@@ -162,10 +164,31 @@ public class LabReportViewActivity extends AppCompatActivity implements OnPageCh
             file = new File(dir, "Report.pdf");
             FileOutputStream fOut = new FileOutputStream(file);
             PdfWriter writer = PdfWriter.getInstance(doc, fOut);
+            Font headerFont = new Font(Font.FontFamily.TIMES_ROMAN, 28,
+                    Font.BOLD);
+            Font subTitle = new Font(Font.FontFamily.TIMES_ROMAN, 18,
+                    Font.BOLD);
 
             //open the document
             doc.open();
 //create table
+            Paragraph p = new Paragraph("UNIVERSITY OF ENGINEERING AND TECHNOLOGY",headerFont);
+            p.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p);
+
+            Paragraph p1 = new Paragraph("Title: Computer Architecture",subTitle);
+            p1.setAlignment(Element.ALIGN_CENTER);
+            p1.setSpacingAfter(8);
+            p1.setSpacingBefore(8);
+            doc.add(p1);
+
+            Paragraph p2 = new Paragraph("Teacher: Dr. Tahir Saleem",subTitle);
+            p2.setAlignment(Element.ALIGN_CENTER);
+            p2.setSpacingAfter(20);
+            p2.setSpacingBefore(4);
+            doc.add(p2);
+
+
             PdfPTable pt = new PdfPTable(3);
             pt.setWidthPercentage(100);
             float[] fl = new float[]{20, 45, 35};
@@ -201,9 +224,9 @@ public class LabReportViewActivity extends AppCompatActivity implements OnPageCh
                 cell.setColspan(1);
                 cell.addElement(pt);
                 pTable.addCell(cell);
-                PdfPTable table = new PdfPTable(6);
+                PdfPTable table = new PdfPTable(5);
 
-                float[] columnWidth = new float[]{6, 30, 30, 20, 20, 30};
+                float[] columnWidth = new float[]{6, 30, 30, 20, 20};
                 table.setWidths(columnWidth);
 
 
@@ -211,56 +234,56 @@ public class LabReportViewActivity extends AppCompatActivity implements OnPageCh
 
 
                 cell.setBackgroundColor(myColor);
-                cell.setColspan(6);
+                cell.setColspan(5);
                 cell.addElement(pTable);
                 table.addCell(cell);
                 cell = new PdfPCell(new Phrase(" "));
-                cell.setColspan(6);
+                cell.setColspan(5);
                 table.addCell(cell);
                 cell = new PdfPCell();
-                cell.setColspan(6);
+                cell.setColspan(5);
 
                 cell.setBackgroundColor(myColor1);
 
                 cell = new PdfPCell(new Phrase("#"));
                 cell.setBackgroundColor(myColor1);
                 table.addCell(cell);
-                cell = new PdfPCell(new Phrase("Header 1"));
+                cell = new PdfPCell(new Phrase("Registeration Number"));
                 cell.setBackgroundColor(myColor1);
                 table.addCell(cell);
-                cell = new PdfPCell(new Phrase("Header 2"));
+                cell = new PdfPCell(new Phrase("Student Name"));
                 cell.setBackgroundColor(myColor1);
                 table.addCell(cell);
-                cell = new PdfPCell(new Phrase("Header 3"));
+                cell = new PdfPCell(new Phrase("Total Marks"));
                 cell.setBackgroundColor(myColor1);
                 table.addCell(cell);
-                cell = new PdfPCell(new Phrase("Header 4"));
+                cell = new PdfPCell(new Phrase("Obtained Marks"));
                 cell.setBackgroundColor(myColor1);
                 table.addCell(cell);
-                cell = new PdfPCell(new Phrase("Header 5"));
-                cell.setBackgroundColor(myColor1);
-                table.addCell(cell);
+//                cell = new PdfPCell(new Phrase("Header 5"));
+//                cell.setBackgroundColor(myColor1);
+//                table.addCell(cell);
 
                 //table.setHeaderRows(3);
                 cell = new PdfPCell();
-                cell.setColspan(6);
+                cell.setColspan(5);
 
                 for (int i = 1; i <= 10; i++) {
                     table.addCell(String.valueOf(i));
-                    table.addCell("Header 1 row " + i);
-                    table.addCell("Header 2 row " + i);
-                    table.addCell("Header 3 row " + i);
-                    table.addCell("Header 4 row " + i);
-                    table.addCell("Header 5 row " + i);
+                    table.addCell("2015-CS-" + i);
+                    table.addCell("Student "+ i);
+                    table.addCell("100");
+                    table.addCell(String.valueOf(i*2));
+//                    table.addCell("Header 5 row0 " + i);
 
                 }
 
-                PdfPTable ftable = new PdfPTable(6);
+                PdfPTable ftable = new PdfPTable(5);
                 ftable.setWidthPercentage(100);
-                float[] columnWidthaa = new float[]{30, 10, 30, 10, 30, 10};
+                float[] columnWidthaa = new float[]{30, 10, 30, 10, 30};
                 ftable.setWidths(columnWidthaa);
                 cell = new PdfPCell();
-                cell.setColspan(6);
+                cell.setColspan(5);
                 cell.setBackgroundColor(myColor1);
                 cell = new PdfPCell(new Phrase("Total Number"));
                 cell.setBorder(Rectangle.NO_BORDER);
@@ -282,15 +305,11 @@ public class LabReportViewActivity extends AppCompatActivity implements OnPageCh
                 cell.setBorder(Rectangle.NO_BORDER);
                 cell.setBackgroundColor(myColor1);
                 ftable.addCell(cell);
-                cell = new PdfPCell(new Phrase(""));
-                cell.setBorder(Rectangle.NO_BORDER);
-                cell.setBackgroundColor(myColor1);
-                ftable.addCell(cell);
-                cell = new PdfPCell(new Paragraph("Footer"));
-                cell.setColspan(6);
+                cell = new PdfPCell(new Paragraph("Signature: __________"));
+                cell.setColspan(5);
                 ftable.addCell(cell);
                 cell = new PdfPCell();
-                cell.setColspan(6);
+                cell.setColspan(5);
                 cell.addElement(ftable);
                 table.addCell(cell);
                 doc.add(table);
