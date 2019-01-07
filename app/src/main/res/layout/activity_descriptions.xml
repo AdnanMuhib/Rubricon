@@ -74,31 +74,6 @@
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textViewCourseId"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:paddingLeft="15dp"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:text="Course ID"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/textViewCourseTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:text="Course Title"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
                 </LinearLayout>
 
 
