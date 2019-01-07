@@ -462,21 +462,6 @@ public class DBManager {
 
     }
 
-    public Cursor getCoursesOfTeacher(String teacherEmail)
-    {
-        database = dbHelper.getReadableDatabase();
-        Cursor c=database.rawQuery("Select Name from PersonTable where email=?",new String[]{teacherEmail});
-        if (c.getCount() == 0) {
-            return null;
-        }
-        if (c != null) {
-            //   c.moveToFirst();
-        }
-        return c;
-
-    }
-
-
     public ContentValues getLoginData(String Email,String Pass)
     {
         database = dbHelper.getReadableDatabase();
@@ -546,6 +531,51 @@ public class DBManager {
         }
         return count;
     }
+    public Cursor getTeacherList()
+    {
+        database = dbHelper.getReadableDatabase();
+        String Role = "Teacher";
+        /*Cursor c=database.rawQuery("Select n.CourseCode,n.CourseTitle,t.SectionName from CourseTable n join SectionTable t on n.CourseCode = t.CourseCode where CourseCode IN (Select CourseCode from TeacherCourseTable where PersonID = " +
+                "(SELECT PersonID from TeacherTable where PersonID = (Select PersonID from PersonTable where Email = ?))) ", new String[]{Email});*/
+        Cursor c=database.rawQuery("Select DISTINCT n.Name,n.Email,s.Department from TeacherTable s join PersonTable n on n.PersonID = s.PersonID where n.Role = ?", new String[]{Role});
+        if (c.getCount() == 0) {
+            return null;
+        }
+        if (c != null) {
+            //   c.moveToFirst();
+        }
+        return c;
 
+    }
+    public Cursor getStudentList()
+    {
+        database = dbHelper.getReadableDatabase();
+        String Role = "Student";
+        /*Cursor c=database.rawQuery("Select n.CourseCode,n.CourseTitle,t.SectionName from CourseTable n join SectionTable t on n.CourseCode = t.CourseCode where CourseCode IN (Select CourseCode from TeacherCourseTable where PersonID = " +
+                "(SELECT PersonID from TeacherTable where PersonID = (Select PersonID from PersonTable where Email = ?))) ", new String[]{Email});*/
+        Cursor c=database.rawQuery("Select DISTINCT n.Name,n.Email,s.Department from StudentTable s join PersonTable n on n.PersonID = s.PersonID where n.Role = ?", new String[]{Role});
+        if (c.getCount() == 0) {
+            return null;
+        }
+        if (c != null) {
+            //   c.moveToFirst();
+        }
+        return c;
 
+    }
+    public String getLoginName(String email)
+    {
+        database = dbHelper.getReadableDatabase();
+        /*Cursor c=database.rawQuery("Select n.CourseCode,n.CourseTitle,t.SectionName from CourseTable n join SectionTable t on n.CourseCode = t.CourseCode where CourseCode IN (Select CourseCode from TeacherCourseTable where PersonID = " +
+                "(SELECT PersonID from TeacherTable where PersonID = (Select PersonID from PersonTable where Email = ?))) ", new String[]{Email});*/
+        Cursor c = database.rawQuery("Select Name from PersonTable where Email = ?", new String[]{email});
+        if (c.getCount() == 0) {
+            return null;
+        }
+        String str = "0";
+        if (c.moveToFirst()) {
+            str = c.getString(c.getColumnIndex("Name"));
+        }
+        return str;
+    }
 }
