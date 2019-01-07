@@ -8,11 +8,24 @@
     android:orientation="vertical"
     android:gravity="bottom">
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_face_teacher"
+
+        android:padding="10dp"
+        android:paddingBottom="20dp"
+        android:tint="@color/white" />
+
     <TextView
+        android:id="@+id/textViewAdminName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My header title"
-        android:textColor="@color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:gravity="center"
+        android:text="XYZ Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white" />
 
 </LinearLayout>
