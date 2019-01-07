@@ -4,13 +4,19 @@ import java.util.ArrayList;
 
 public class RubricCLO {
 //   cloID type depend on the 1st group
-    private int cloID;
-    private int rubricID;
-    private ArrayList<Criteria> criteriaArrayList = new ArrayList<>();
+    public static RubricCLO rubricCLO = new RubricCLO();
+    public int id;
+    public int cloID;
+    public int rubricID;
+    public ArrayList<Criteria> criteriaArrayList = new ArrayList<>();
 
     public RubricCLO(int cloID, int rubricID) {
         this.cloID = cloID;
         this.rubricID = rubricID;
+    }
+    public RubricCLO(){}
+    public static void refresh(){
+        rubricCLO = new RubricCLO();
     }
 
     public int getCloID() {
@@ -30,6 +36,14 @@ public class RubricCLO {
     }
 
     public void addCriteria(Criteria criteria){
-        criteriaArrayList.add(criteria);
+        criteriaArrayList.add(criteriaArrayList.size(),criteria);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

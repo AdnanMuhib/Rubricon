@@ -82,7 +82,7 @@ public class NewRubricActivity extends AppCompatActivity {
                 etMarks.setError("Please enter marks!");
                 return;
             }
-            marksList.add(marks);
+            marksList.add(marksList.size(),marks);
         }
         int i = 1;
         for (String marks:marksList){
@@ -92,6 +92,7 @@ public class NewRubricActivity extends AppCompatActivity {
         Rubric.rubric.saveRubric(this);
 
         startActivity(new Intent(this,AddCloActivity.class));
+        finish();
     }
 
     public class LevelAdapter extends ArrayAdapter {
@@ -122,8 +123,7 @@ public class NewRubricActivity extends AppCompatActivity {
                 view = layoutInflater.inflate(R.layout.level_item_marks, null);
             }
 
-            TextView level_ = (TextView) view.findViewById(R.id.level);
-            EditText iconview = (EditText) view.findViewById(R.id.marks);
+            TextView level_ = (TextView) view.findViewById(R.id.levelTitle);
 
             level_.setText("Level " + (position+1));
 

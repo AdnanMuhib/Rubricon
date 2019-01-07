@@ -24,6 +24,7 @@ public class DescriptionsActivity extends AppCompatActivity {
     EditText title;
     EditText description;
     int level;
+    int criteriaId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +45,30 @@ public class DescriptionsActivity extends AppCompatActivity {
         actionbar.setTitle("Back");
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white);
+
+        criteriaId = getIntent().getIntExtra("criteriaId",-1);
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (criteriaId != -1)
+            loadData();
+    }
 
+    public void loadData(){
+        Criteria criteria = RubricCLO.rubricCLO.criteriaArrayList.get(criteriaId);
+        title.setText(criteria.title);
+        description.setText(criteria.description);
+
+        for (int i =0; i<level; i++){
+            View item = desList.getChildAt(i);
+            EditText etDesc = item.findViewById(R.id.etLevelDescription);
+            etDesc.setText(criteria.bridgeGCs.get(i).description);
+        }
+
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -59,6 +81,12 @@ public class DescriptionsActivity extends AppCompatActivity {
     }
 
     public void saveCriteria(View view){
+        Criteria criteria;
+        if (criteriaId == -1)
+            criteria = new Criteria();
+        else
+            criteria = RubricCLO.rubricCLO.criteriaArrayList.get(criteriaId);
+
         String criteriaTitle = title.getText().toString();
         String des = description.getText().toString();
 
@@ -83,14 +111,19 @@ public class DescriptionsActivity extends AppCompatActivity {
                 descList.add(desc);
             }
 
-            Criteria.criteria.setDescription(des);
-            Criteria.criteria.setTitle(criteriaTitle);
+            criteria.setTitle(criteriaTitle);
+            criteria.setDescription(des);
 
             int i = 0;
             for (String desc_:descList){
-                Criteria.criteria.addBridgeGC(new BridgeGC(Rubric.rubric.gradingLevels.get(i).id,desc_));
+                if (criteriaId == -1)
+                    criteria.addBridgeGC(new BridgeGC(Rubric.rubric.gradingLevels.get(i).id,desc_));
+                else
+                    criteria.bridgeGCs.get(i).description = desc_;
                 i++;
             }
+            if (criteriaId == -1)
+                RubricCLO.rubricCLO.addCriteria(criteria);
             finish();
         }
     }

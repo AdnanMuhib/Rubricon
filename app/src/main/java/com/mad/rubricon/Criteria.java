@@ -3,18 +3,17 @@ package com.mad.rubricon;
 import java.util.ArrayList;
 
 public class Criteria {
-    public static Criteria criteria = new Criteria();
     String title;
     String description;
     int rubricCloID;
     ArrayList<BridgeGC> bridgeGCs = new ArrayList<>();
 
-    public Criteria(String title, String description, int rubricCloID) {
+    public Criteria(String title, String description) {
         this.title = title;
         this.description = description;
         this.rubricCloID = rubricCloID;
     }
-    private Criteria(){}
+    public Criteria(){ }
 
     public String getTitle() {
         return title;
@@ -41,6 +40,6 @@ public class Criteria {
     }
 
     public void addBridgeGC(BridgeGC bridgeGC){
-        bridgeGCs.add(bridgeGC);
+        bridgeGCs.add(bridgeGCs.size(),bridgeGC);
     }
 }

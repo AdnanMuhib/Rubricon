@@ -106,6 +106,18 @@ public class BridgeGCTable {
         return result;
     }
 
+    public int getCount(){
+        String [] colomns = new String []{KEY_ROWID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,KEY_ROWID);
+
+        int count = 0;
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            count++;
+        }
+        return count;
+    }
+
     public ArrayList<RubricCLO> sort(ArrayList<RubricCLO> list){
         for (int i=1; i<=list.size(); i++){
             int index = find(list,i);

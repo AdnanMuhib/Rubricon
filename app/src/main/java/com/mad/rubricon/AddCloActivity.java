@@ -13,7 +13,8 @@ import android.widget.ListView;
 public class AddCloActivity extends AppCompatActivity {
 
     ListView addClo;
-    String [] CLOs = {"CLO 1","CLO 2"};
+    String [] CLOs = {};
+    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class AddCloActivity extends AppCompatActivity {
         addClo =findViewById(R.id.cloList);
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, CLOs);
         addClo.setAdapter(adapter);
 
@@ -35,9 +36,32 @@ public class AddCloActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        CLOs = new String[Rubric.rubric.rubricCLOs.size()];
+        int i = 0;
+        for (RubricCLO clo: Rubric.rubric.rubricCLOs){
+            CLOs[i] = "CLO " + clo.cloID;
+            i++;
+        }
+
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, CLOs);
+        addClo.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        Rubric.rubric.saveClos(this);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Rubric.rubric.saveClos(this);
                 finish();
                 return true;
         }
@@ -47,4 +71,5 @@ public class AddCloActivity extends AppCompatActivity {
     public void AddClo(View view){
         startActivity(new Intent(this,CloSubCategoryActivity.class));
     }
+
 }

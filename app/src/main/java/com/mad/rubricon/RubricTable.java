@@ -123,6 +123,26 @@ public class RubricTable {
         return result;
     }
 
+    public String getIds(String courseId, String teacherId){
+        String [] colomns = new String []{KEY_ROWID,KEY_COURSE_ID,KEY_TEACHER_ID};
+
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+
+        String result = "";
+
+        int iRowID = cursor.getColumnIndex(KEY_ROWID);
+        int iCourse = cursor.getColumnIndex(KEY_COURSE_ID);
+        int iTeacher = cursor.getColumnIndex(KEY_TEACHER_ID);
+
+        for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            if (cursor.getString(iTeacher).equals(teacherId) && cursor.getString(iCourse).equals(courseId)) {
+                result += cursor.getInt(iRowID) + ",";
+            }
+        }
+
+        return result;
+    }
+
     public int getCount(){
         String [] colomns = new String []{KEY_ROWID};
 
@@ -132,7 +152,7 @@ public class RubricTable {
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
             count++;
         }
-        return count;
+        return count+1;
     }
 
     public ArrayList<RubricCLO> sort(ArrayList<RubricCLO> list){

@@ -54,7 +54,7 @@ public class LabEvaluationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         if(requiredOperation.equals("LabEvaluation"))
-        actionbar.setTitle("Lab Evaluation");
+            actionbar.setTitle("Lab Evaluation");
         else
             actionbar.setTitle("Lab Reporting");
         actionbar.setDisplayHomeAsUpEnabled(true);

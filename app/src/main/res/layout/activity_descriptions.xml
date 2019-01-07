@@ -141,8 +141,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:paddingLeft="50dp"
-                            android:text="Title :"
-                            android:textColor="@android:color/black" />
+                            android:text="Title :" />
 
                         <EditText
                             android:id="@+id/etCriteriaTitle"
@@ -150,7 +149,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:hint="Enter Title "
-                            android:textColor="@android:color/black" />
+                            android:textColor="@color/textColor" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -165,8 +164,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:paddingLeft="50dp"
-                            android:text="Description :"
-                            android:textColor="@android:color/black" />
+                            android:text="Description :" />
 
                         <EditText
                             android:id="@+id/etDescription"
@@ -174,7 +172,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:hint="Enter Description "
-                            android:textColor="@android:color/black" />
+                            android:inputType="text"
+                            android:textColor="@color/textColor" />
                     </LinearLayout>
 
                     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -206,7 +205,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/colorPrimary"
                                 android:onClick="saveCriteria"
-                                android:text="save" />
+                                android:text="save"
+                                android:textColor="@color/white" />
                         </TableRow>
                     </android.support.design.widget.CoordinatorLayout>
 

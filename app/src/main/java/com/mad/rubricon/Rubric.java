@@ -45,7 +45,7 @@ public class Rubric {
     }
 
     public void addGradingLevel(GradingLevel level){
-        gradingLevels.add(level);
+        gradingLevels.add(gradingLevels.size(),level);
     }
 
     public String getTeacherID() {
@@ -69,7 +69,7 @@ public class Rubric {
         RubricTable rubricTable = new RubricTable(context);
         rubricTable.open();
         this.id = rubricTable.getCount();
-        rubricTable.createEntry(id,courseID,rubricTitle,teacherID,section);
+        rubricTable.createEntry(id,"2","Rubric","2","D");
         rubricTable.close();
 
         // Saving grading level of the rubric to the DB...
@@ -83,5 +83,37 @@ public class Rubric {
             id++;
         }
         table.close();
+    }
+
+    public void saveClos(Context context){
+        RubricCLOTable cloTable = new RubricCLOTable(context);
+        cloTable.open();
+        CriteriaTable criteriaTable = new CriteriaTable(context);
+        criteriaTable.open();
+        BridgeGCTable gcTable = new BridgeGCTable(context);
+        gcTable.open();
+
+        int cloId = cloTable.getCount();
+        for (RubricCLO rubricCLO : rubricCLOs){
+            rubricCLO.id = cloId;
+            cloTable.createEntry(rubricCLO.id,rubricCLO.cloID,rubricCLO.rubricID);
+
+            int criteriaId = criteriaTable.getCount();
+            for(Criteria criteria : rubricCLO.criteriaArrayList){
+                criteriaTable.createEntry(criteriaId,criteria.title,rubricCLO.id,criteria.description);
+
+                int gcId = gcTable.getCount();
+                for (BridgeGC bridge : criteria.bridgeGCs){
+                    gcTable.createEntry(gcId,bridge.gradingLevelID,criteriaId,bridge.description);
+                    gcId++;
+                }
+                criteriaId++;
+            }
+            cloId++;
+        }
+        cloTable.close();
+        criteriaTable.close();
+        gcTable.close();
+        rubric = new Rubric();
     }
 }

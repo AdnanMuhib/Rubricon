@@ -99,25 +99,19 @@ public class RubricCLOTable {
 
         return result;
     }
-    public String getWithTestId(String id){
-        String [] colomns = new String []{KEY_ROWID,KEY_CLO_ID};
 
-        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,null);
+    public int getCount(){
+        String [] colomns = new String []{KEY_ROWID};
 
-        String result = "";
+        Cursor cursor = this.ourDatabase.query(DATABASE_TABLE, colomns,null,null,null,null,KEY_ROWID);
 
-        int iRowID = cursor.getColumnIndex(KEY_ROWID);
-        int iTestId = cursor.getColumnIndex(KEY_CLO_ID);
-
+        int count = 0;
         for (cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
-            if (id.equals(cursor.getString(iTestId))){
-                result += cursor.getString(iRowID) + "-";
-            }
+            count++;
         }
-        cursor.close();
-
-        return result;
+        return count;
     }
+
 
     public ArrayList<RubricCLO> sort(ArrayList<RubricCLO> list){
         for (int i=1; i<=list.size(); i++){
